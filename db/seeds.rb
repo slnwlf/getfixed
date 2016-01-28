@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Bike.create({name: "Soma Rush", description: "Green steel fixed gear"})
+Bike.create({name: "Dolan Carbon", description: "Black carbon fixed gear magic"})

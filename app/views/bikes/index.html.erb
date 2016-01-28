@@ -1,0 +1,11 @@
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<h1>Bikes index page</h1>
+		<% @bikes.each do |bike| %>
+		<p>
+			<strong>Name:</strong> <%= bike.name %><br>
+			<strong>Description:</strong> <%= bike.description %>
+		</p>
+		<% end %>
+	</div>
+</div>
