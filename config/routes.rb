@@ -16,4 +16,7 @@ Rails.application.routes.draw do
 #           DELETE /bikes/:id(.:format)      bikes#destroy
 
 
+  # root to: "users#index"
+  # # use resources to set all CRUD routes for users
+  # resources :users
 end
