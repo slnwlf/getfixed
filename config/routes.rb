@@ -15,8 +15,11 @@ Rails.application.routes.draw do
 #           PUT    /bikes/:id(.:format)      bikes#update
 #           DELETE /bikes/:id(.:format)      bikes#destroy
 
+	get "/signup" => "sessions#new"
+	post "/users" => "sessions#create"
+	get "/logout" => "sessions#destroy"
 
-  # root to: "users#index"
-  # # use resources to set all CRUD routes for users
-  # resources :users
+	get "/signup" => "users#new"
+	post "/users" => "users#create"
+
 end
