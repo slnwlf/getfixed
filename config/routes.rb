@@ -15,8 +15,8 @@ Rails.application.routes.draw do
 #           PUT    /bikes/:id(.:format)      bikes#update
 #           DELETE /bikes/:id(.:format)      bikes#destroy
 
-	get "/signup" => "sessions#new"
-	post "/users" => "sessions#create"
+	get "/login" => "sessions#new"
+	post "/login" => "sessions#create"
 	get "/logout" => "sessions#destroy"
 
 	get "/signup" => "users#new"
