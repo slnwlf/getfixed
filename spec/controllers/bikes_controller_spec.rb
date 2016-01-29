@@ -28,6 +28,13 @@ RSpec.describe BikesController, type: :controller do
     end
   end
 
+  describe "POST #create" do
+    it "should add a new bike to all_bikes" do
+      post :create, bike: {title: "blah", description: "blah"}
+      expect(response).to redirect_to bike_path(Bike)
+    end
+  end
+
 
 
 end

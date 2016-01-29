@@ -21,7 +21,7 @@ class BikesController < ApplicationController
 
 		#if bike saves, redirect to route that displays all bikes
 		if bike.save
-			redirect_to bike_path(bike)
+			redirect_to bike_path(Bike)
 			# equivalent to "/bikes"
 		end
 	end
