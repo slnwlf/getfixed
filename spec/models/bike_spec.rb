@@ -11,8 +11,13 @@ RSpec.describe Bike, type: :model do
   end
 
 	describe "test validation" do
-		it "validates that a bike has a name and description" do
+
+		it "validates that a bike has a name" do
 			expect(@bike.name).to eq("#{@bike.name}")
+		end
+
+		it "validates that the bike has a description" do
+			expect(@bike.description).to eq("#{@bike.description}")
 		end
 	end
 
