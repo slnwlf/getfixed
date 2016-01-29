@@ -3,5 +3,8 @@
 		<h2>This is the show page for a specific bike</h2>
 		<h3><%= @bike.name %></h3>
 		<p><%= @bike.description %></p>
+		<div>
+			<p><%= button_to "Delete", @bike, method: :delete, class: "btn btn-primary" %></p>
+		</div>
 	</div>
 </div>

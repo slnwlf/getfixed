@@ -21,7 +21,7 @@ class BikesController < ApplicationController
 
 		#if bike saves, redirect to route that displays all bikes
 		if bike.save
-			redirect_to bike_path(Bike)
+			redirect_to bike_path(bike)
 			# equivalent to "/bikes"
 			# should this be 'bike' or 'Bike' ??
 		end
@@ -63,6 +63,20 @@ class BikesController < ApplicationController
 
 		#redirect to that bike's show page
 		redirect_to bike_path(bike)
+	end
+
+	def destroy
+		#get the bike ID
+		bike_id = params[:id]
+
+		#use the bike ID to find the bike in the db
+		bike = Bike.find_by_id(bike_id)
+
+		# destroy the creature
+		bike.destroy
+
+		# redirect to the bikes#show page
+		redirect_to "/bikes"
 	end
 
 end
