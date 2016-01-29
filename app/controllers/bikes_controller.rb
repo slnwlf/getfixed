@@ -24,6 +24,9 @@ class BikesController < ApplicationController
 			redirect_to bike_path(bike)
 			# equivalent to "/bikes"
 			# should this be 'bike' or 'Bike' ??
+		else
+			flash[:error] = bike.errors.full_messages.join(", ")
+			redirect_to new_bike_path
 		end
 	end
 
