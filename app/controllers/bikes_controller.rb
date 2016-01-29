@@ -23,6 +23,7 @@ class BikesController < ApplicationController
 		if bike.save
 			redirect_to bike_path(Bike)
 			# equivalent to "/bikes"
+			# should this be 'bike' or 'Bike' ??
 		end
 	end
 
@@ -33,6 +34,35 @@ class BikesController < ApplicationController
 		#and save it to an instance variable
 		@bike = Bike.find_by_id(bike_id)
 		render :show
+	end
+
+	def edit
+		#get the bike ID from params
+		bike_id = params[:id]
+
+		# use the bike ID to find the bike in the database
+		# and save it to an instance variable
+		@bike = Bike.find_by_id(bike_id)
+
+		#render an edit view
+		render :edit
+	end
+
+	def update
+		#get the bike id so it can be edited
+		bike_id = params[:id]
+
+		#edit bike
+		bike = Bike.find_by_id(bike_id)
+
+		#whitelist params and save them to a variable
+		bike_params = params.require(:bike).permit(:name, :description)
+
+		#update the bike associated with that ID
+		bike.update_attributes(bike_params)
+
+		#redirect to that bike's show page
+		redirect_to bike_path(bike)
 	end
 
 end
