@@ -4,6 +4,7 @@
 		<h3><%= @bike.name %></h3>
 		<p><%= @bike.description %></p>
 		<div>
+			<p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %></p>
 			<p><%= button_to "Delete", @bike, method: :delete, class: "btn btn-primary" %></p>
 		</div>
 	</div>
