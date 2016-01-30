@@ -64,18 +64,18 @@ class BikesController < ApplicationController
 		redirect_to bike_path(bike)
 	end
 
-	# def destroy
-	# 	#get the bike ID
-	# 	bike_id = params[:id]
+	def destroy
+		#get the bike ID
+		bike_id = params[:id]
 
-	# 	#use the bike ID to find the bike in the db
-	# 	bike = Bike.find_by_id(bike_id)
+		#use the bike ID to find the bike in the db
+		bike = Bike.find_by_id(bike_id)
 
-	# 	# destroy the creature
-	# 	bike.destroy
+		# destroy the creature
+		bike.destroy
 
-	# 	# redirect to the bikes#show page
-	# 	redirect_to "/bikes"
-	# end
+		# redirect to the bikes#show page
+		redirect_to "/bikes"
+	end
 
 end

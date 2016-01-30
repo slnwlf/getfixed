@@ -91,6 +91,24 @@ RSpec.describe BikesController, type: :controller do
         expect(response).to redirect_to(bike_path)
       end
     end
-  end 
 
+    # describe "destroy test" do
+    #   before do
+    #     @bike = Bike.create(name: FFaker::Name.first_name, description: FFaker::Lorem.sentence)  
+    #     delete :destroy, id: @bike
+    #   end 
+
+    #   it "should get the bike it needs to delete" do
+    #     expect(@bike).to eq(Bike.find_by_id(@bike))
+    #   end
+
+    #   it "should destroy this instance of the bike" do
+    #     expect(@bike).to change(Bike,:count).by(-1)
+    #   end
+
+    #   it "should redirect to the bike#show page" do
+    #     expect(response).to redirect_to(all_bikes)
+    #   end
+    # end
+end
 end
