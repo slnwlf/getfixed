@@ -33,10 +33,9 @@ class BikesController < ApplicationController
 	def show
 		# get the bike id from the url params
 		bike_id = params[:id]
-		#use 'bike id' to find the bike in the database
-		#and save it to an instance variable
+	  #use 'bike id' to find the bike in the database
+	  #and save it to an instance variable
 		@bike = Bike.find_by_id(bike_id)
-		render :show
 	end
 
 	def edit
@@ -44,11 +43,8 @@ class BikesController < ApplicationController
 		bike_id = params[:id]
 
 		# use the bike ID to find the bike in the database
-		# and save it to an instance variable
+ 	  # and save it to an instance variable
 		@bike = Bike.find_by_id(bike_id)
-
-		#render an edit view
-		render :edit
 	end
 
 	def update
@@ -68,18 +64,18 @@ class BikesController < ApplicationController
 		redirect_to bike_path(bike)
 	end
 
-	def destroy
-		#get the bike ID
-		bike_id = params[:id]
+	# def destroy
+	# 	#get the bike ID
+	# 	bike_id = params[:id]
 
-		#use the bike ID to find the bike in the db
-		bike = Bike.find_by_id(bike_id)
+	# 	#use the bike ID to find the bike in the db
+	# 	bike = Bike.find_by_id(bike_id)
 
-		# destroy the creature
-		bike.destroy
+	# 	# destroy the creature
+	# 	bike.destroy
 
-		# redirect to the bikes#show page
-		redirect_to "/bikes"
-	end
+	# 	# redirect to the bikes#show page
+	# 	redirect_to "/bikes"
+	# end
 
 end

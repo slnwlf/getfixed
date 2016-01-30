@@ -31,10 +31,66 @@ RSpec.describe BikesController, type: :controller do
   describe "POST #create" do
     it "should add a new bike to all_bikes" do
       post :create, bike: {title: "blah", description: "blah"}
-      expect(response).to redirect_to bike_path(Bike)
+      expect(response).to redirect_to new_bike_path
     end
   end
 
+  describe "show page for a bike" do
+    before do
+      @bike = Bike.create(name: FFaker::Name.first_name, description: FFaker::Lorem.sentence)
+      get :show, id: @bike.id
+    end
 
+    it "should find the id and assign to this instance of a bike" do
+      expect(assigns(:bike)).to eq(@bike)
+    end
+
+    it "should render the page" do
+      expect(response).to render_template(:show)
+    end
+  end
+
+  describe "edit page for a bike" do
+    before do
+      @bike = Bike.create(name: FFaker::Name.first_name, description: FFaker::Lorem.sentence)
+      get :edit, id: @bike.id
+    end
+
+    it "should get the bike its going to edit" do
+      expect(assigns(:bike)).to eq(@bike)
+    end
+
+    it "should render the edit page" do
+      expect(response).to render_template(:edit)
+    end
+  end
+
+  describe "update test" do
+    before do
+      @bike = Bike.create(name: FFaker::Name.first_name, description: FFaker::Lorem.sentence)  
+    end
+
+    context "success" do
+      before do
+        @new_name = FFaker::Name.first_name
+        @new_description = FFaker::Lorem.sentence
+        put :update, id: @bike.id, bike: { name: @new_name, description: @new_description }
+        @bike.reload
+      end
+
+      it "should update the bike in the bike db" do
+        expect(@bike.name).to eq(@new_name)
+        expect(@bike.description).to eq(@new_description)
+      end
+    end
+
+    context "failure" do
+      it "should redirect to edit bike path when update fails" do
+        #update with failed bike params
+        put :update, id: @bike.id, bike: { name: nil, description: nil }
+        expect(response).to redirect_to(bike_path)
+      end
+    end
+  end 
 
 end
