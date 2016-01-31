@@ -2,7 +2,11 @@ Rails.application.routes.draw do
 
   root to: "bikes#index"
   # use resources to set all CRUD routes for bikes
-  resources :bikes
+  resources :bikes do
+  	member do
+  		put "like", to: "pins#upvote"
+  	end
+  end
 
 #      Prefix Verb   URI Pattern               Controller#Action
 #      root GET    /                         bikes#index

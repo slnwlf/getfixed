@@ -37,6 +37,9 @@ gem 'bcrypt', '~> 3.1.7'
 #paperclip for image upload
 gem "paperclip", "~> 4.3"
 
+# acts as votable for upvoting
+gem 'acts_as_votable', '~> 0.10.0'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

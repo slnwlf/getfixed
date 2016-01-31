@@ -78,4 +78,15 @@ class BikesController < ApplicationController
 		redirect_to "/bikes"
 	end
 
+	def upvote
+		# use the bike id to find this specific bike
+		bike = Bike.find_by_id(bike_id)
+
+		# Only allow logged in users to vote
+		bike.upvote_by current_user
+
+		# redirect back to where we just were
+		redirect_to :back
+	end
+
 end
