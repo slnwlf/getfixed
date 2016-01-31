@@ -14,7 +14,7 @@ class BikesController < ApplicationController
 
 	def create
 		#whitelist params and save them to a variable
-		bike_params = params.require(:bike).permit(:name, :description)
+		bike_params = params.require(:bike).permit(:name, :description, :image)
 
 		#create a new bike from 'bike_params'
 		bike = Bike.new(bike_params)
@@ -55,7 +55,7 @@ class BikesController < ApplicationController
 		bike = Bike.find_by_id(bike_id)
 
 		#whitelist params and save them to a variable
-		bike_params = params.require(:bike).permit(:name, :description)
+		bike_params = params.require(:bike).permit(:name, :description, :image)
 
 		#update the bike associated with that ID
 		bike.update_attributes(bike_params)

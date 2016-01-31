@@ -3,6 +3,7 @@
 		<h2>This is the show page for a specific bike</h2>
 		<h3><%= @bike.name %></h3>
 		<p><%= @bike.description %></p>
+		<p><%= image_tag @bike.image.url(:large) %></p>
 		<div>
 			<p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %></p>
 			<p><%= button_to "Delete", @bike, method: :delete, class: "btn btn-primary" %></p>

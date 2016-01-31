@@ -1,8 +1,9 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<%= form_for @bike do |f| %>
+		<%= form_for @bike, html: { multipart: true } do |f| %>
 		<%= f.text_field :name %>
 		<%= f.text_area :description %>
+		<%= f.file_field :image %>
 		<%= f.submit "Save Bike", :class => "btn btn-primary" %>
 		<% end %>
 	</div>
