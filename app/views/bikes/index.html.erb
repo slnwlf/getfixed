@@ -1,15 +1,19 @@
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<h1>Bikes index page</h1>
+	<div class="col-md-6 col-md-offset-3 well">
+		<h2>Get Fixed - post your fixed gear bike</h2>
 		<% @bikes.each do |bike| %>
 		<p>
 			<strong>Name:</strong> <%= bike.name %><br>
 			<strong>Description:</strong> <%= bike.description %>
 		</p>
 		<div class="bike_photo">
-			<%= image_tag bike.image.url(:medium) %>
+			<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
 		</div>
+		<br>
+		<div class="text-center">
 		<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary" %></p>
+		</div>
+		<p>Posted by <%= current_user.name  %></p>
 		<hr>
 		<% end %>
 	</div>

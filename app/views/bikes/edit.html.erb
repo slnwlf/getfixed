@@ -1,10 +1,14 @@
 <div class="row">
-	<div class="col-md-6 col-md-offset-3">
+	<div class="col-md-6 col-md-offset-3 well">
 		<%= form_for @bike, html: { multipart: true } do |f| %>
-		<%= f.text_field :name %>
-		<%= f.text_area :description %>
+		<div class="form-group">
+			<%= f.text_field :name, :class => "form-control", :placeholder => "Bike name" %>
+			<%= f.text_area :description, :class =>"form-control", :placeholder => "Description" %>
+		</div>
 		<%= f.file_field :image %>
+		<div class="text-center">
 		<%= f.submit "Save Bike", :class => "btn btn-primary" %>
+		</div>
 		<% end %>
 	</div>
 </div>
