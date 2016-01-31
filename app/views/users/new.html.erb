@@ -1,11 +1,12 @@
-<h1>This is the sign up page</h1>
-
-<%= form_for :user, url: '/users' do |f| %>
-
-	Name: <%= f.text_field :name %>
-	Email: <%= f.text_field :email %>
-	Password: <%= f.password_field :password %>
-	Password Confirmation: <%= f.password_field :password_confirmation %>
-	<%= f.submit "Submit" %>
-
-<% end %>
+<div class="row">
+	<div class="col-md-6 col-md-offset-3 well">
+		<h1>This is the sign up page</h1>
+		<%= form_for :user, url: '/users' do |f| %>
+		Name: <%= f.text_field :name, :class => "form-control" %>
+		Email: <%= f.text_field :email, :class => "form-control" %>
+		Password: <%= f.password_field :password, :class => "form-control" %>
+		Password Confirmation: <%= f.password_field :password_confirmation, :class => "form-control" %>
+		<%= f.submit "Submit", :class => "btn btn-primary"  %>
+		<% end %>
+	</div>
+</div>
