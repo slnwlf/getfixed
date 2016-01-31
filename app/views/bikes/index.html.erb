@@ -6,6 +6,10 @@
 			<strong>Name:</strong> <%= bike.name %><br>
 			<strong>Description:</strong> <%= bike.description %>
 		</p>
+		<div class="bike_photo">
+		</div>
+		<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary" %></p>
+		<hr>
 		<% end %>
 	</div>
 </div>
