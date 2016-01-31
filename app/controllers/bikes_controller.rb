@@ -1,4 +1,5 @@
 class BikesController < ApplicationController
+
 	#display all bikes
 	def index
 		#get all bikes from db and save to instance variable
@@ -79,9 +80,13 @@ class BikesController < ApplicationController
 	end
 
 	def upvote
-		# use the bike id to find this specific bike
-		bike = Bike.find_by_id(bike_id)
 
+		#get the bike id so it can be edited
+		bike_id = params[:id]
+
+		#edit bike
+		bike = Bike.find_by_id(bike_id)
+		
 		# Only allow logged in users to vote
 		bike.upvote_by current_user
 

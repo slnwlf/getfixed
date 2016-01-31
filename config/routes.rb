@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   # use resources to set all CRUD routes for bikes
   resources :bikes do
   	member do
-  		put "like", to: "pins#upvote"
+  		put "like", to: "bikes#upvote"
   	end
   end
 
