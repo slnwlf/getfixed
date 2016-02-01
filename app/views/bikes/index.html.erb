@@ -21,7 +21,7 @@
 		<div class="text-center">
 			<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary" %></p>
 		</div>
-		<p>Posted by </p>
+		<p>Posted by <%= bike.user.name %></p>
 		<hr>
 		<% end %>
 	</div>

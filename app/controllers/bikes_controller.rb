@@ -1,4 +1,5 @@
 class BikesController < ApplicationController
+	before_action :set_user
 
 	#display all bikes
 	def index
@@ -18,7 +19,10 @@ class BikesController < ApplicationController
 		bike_params = params.require(:bike).permit(:name, :description, :image)
 
 		#create a new bike from 'bike_params'
-		bike = Bike.new(bike_params)
+		# bike = Bike.new(bike_params)
+
+		# associate user with bike - so username can appear on bike index
+		bike = current_user.bikes.new(bike_params)
 
 		#if bike saves, redirect to route that displays all bikes
 		if bike.save
@@ -93,5 +97,12 @@ class BikesController < ApplicationController
 		# redirect back to where we just were
 		redirect_to :back
 	end
+
+private
+
+	def set_user
+		@user = current_user
+	end
+		
 
 end
