@@ -11,10 +11,13 @@
 		<% end %>
 
 		<p>Posted by <%= @bike.user.name %></p>
+		<p>Posted  <%= @bike.created_at.strftime("%b. %d %Y") %></p>
 
 		<div>
+		<% if current_user %>
 			<p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %></p>
 			<p><%= button_to "Delete", @bike, method: :delete, class: "btn btn-primary" %></p>
+		<% end %>
 		</div>
 	</div>
 </div>
