@@ -17,7 +17,7 @@
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<% if current_user %>
-						<li><%= link_to "Post a new bike", new_bike_path %></li>
+						<li><%= link_to "Post a new bike", new_bike_path, class: "btn btn-primary" %></li>
 						<li><%= link_to current_user.name.titleize %></li>
 						<li><%= link_to "Logout", '/logout' %></li>
 						<% else %>
@@ -34,7 +34,7 @@
 					<div><%= msg %></div>
 					<% end %>
 				</div>
-				
+
 				<%= yield %>
 			</body>
 		</html>
