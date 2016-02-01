@@ -18,7 +18,7 @@
 					<ul class="nav navbar-nav navbar-right">
 					<% if current_user %>
 						<li><%= link_to "Post a new bike", new_bike_path %></li>
-						<li><%= current_user.name.titleize %></li>
+						<li><%= link_to current_user.name.titleize %></li>
 						<li><%= link_to "Logout", '/logout' %></li>
 					<% else %>
 						<li><%= link_to "Sign Up", '/signup' %></li>

@@ -6,10 +6,10 @@
 		<p><%= image_tag @bike.image.url(:large) %></p>
 
 		<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
-		<span class="glyphicon glyphicon-heart"></span>
+		<span class="glyphicon glyphicon-triangle-top"></span>
 		<%= @bike.get_upvotes.size %>
 		<% end %>
-		
+
 		<div>
 			<p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %></p>
 			<p><%= button_to "Delete", @bike, method: :delete, class: "btn btn-primary" %></p>
