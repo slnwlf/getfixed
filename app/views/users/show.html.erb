@@ -7,13 +7,3 @@
       </div>
     </div>
   </div>
-  <div class="col-md-6">
-    <% @posts.each do |p| %>
-    <div class="thumbnail">
-      <h4><%= link_to p.title, bike_path(bike) %></h4>
-      <p><%= bike.name %></p>
-      <p><small><%= p.created_at.strftime("%A, %B %d") %></small></p>
-    </div>
-    <% end %>
-  </div>
-</div>

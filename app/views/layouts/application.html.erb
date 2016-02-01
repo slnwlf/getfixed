@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Get Fixed</title>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -16,24 +16,25 @@
 				<!-- Collect the nav links, forms, and other content for toggling -->
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-					<% if current_user %>
+						<% if current_user %>
 						<li><%= link_to "Post a new bike", new_bike_path %></li>
 						<li><%= link_to current_user.name.titleize %></li>
 						<li><%= link_to "Logout", '/logout' %></li>
-					<% else %>
+						<% else %>
 						<li><%= link_to "Sign Up", '/signup' %></li>
 						<li><%= link_to "Login", '/login'  %></li>
-					<% end %>
+						<% end %>
 					</ul>
-				</div><!-- /.navbar-collapse -->
-			</div><!-- /.container-fluid -->
-		</nav>
-
-<!-- 	display flash messages above the yield block -->
-	<% flash.each do |name, msg| %>
-	<div><%= msg %></div>
-	<% end %>
-	
-	<%= yield %>
-	</body>
-</html>
+					</div><!-- /.navbar-collapse -->
+					</div><!-- /.container-fluid -->
+				</nav>
+				<!-- 	display flash messages above the yield block -->
+				<% flash.each do |name, msg| %>
+				<div class="alert alert-danger" role="alert">
+					<div><%= msg %></div>
+					<% end %>
+				</div>
+				
+				<%= yield %>
+			</body>
+		</html>

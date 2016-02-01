@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	before_filter :set_user, except: [:index, :new, :create]
+	# before_filter :set_user, except: [:index, :new, :create]
 	before_filter :authorize, only: [:edit, :update, :destroy]
 
 	# GET /users
