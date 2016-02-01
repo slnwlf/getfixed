@@ -10,10 +10,17 @@
 			<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
 		</div>
 		<br>
+
+		<div class="text-center">
+			<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default" do %>
+			<span class="glyphicon glyphicon-triangle-top"></span>
+			<%= bike.get_upvotes.size %>
+			<% end %>
+
+		</div>
 		<div class="text-center">
 			<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary" %></p>
 		</div>
-
 		<p>Posted by </p>
 		<hr>
 		<% end %>
