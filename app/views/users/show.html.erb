@@ -1,9 +1,19 @@
 <div class="row">
-  <div class="col-sm-6 col-md-4">
-    <div>
-      <div class="caption">
-        <h3><%= @user.name %> </h3>
-        <p><%= link_to 'Edit', edit_user_path(current_user), :class =>"glyphicon glyphicon-cog"%></p>
-      </div>
-    </div>
-  </div>
+	<div class="col-sm-6 col-md-4">
+		<div>
+			<div class="caption">
+				<h3><%= @user.name %> </h3>
+				<p><%= link_to 'Edit', edit_user_path(current_user), :class =>"glyphicon glyphicon-cog"%></p>
+			</div>
+			<div class="col-md-6">
+				<% @bikes.each do |bike| %>
+				<div>
+					<p>test copy here</p>
+					<h4><%= link_to bike.name, bike_path(bike) %></h4>
+					<p><small><%= bike.created_at.strftime("%A, %B %d") %></small></p>
+				</div>
+				<% end %>
+			</div>
+			
+		</div>
+	</div>
