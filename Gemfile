@@ -40,6 +40,14 @@ gem "paperclip", "~> 4.3"
 # acts as votable for upvoting
 gem 'acts_as_votable', '~> 0.10.0'
 
+# for heroku deploy
+gem 'pg'
+
+# another gem for heroku
+group :production do
+  gem 'rails_12factor'
+end
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 
