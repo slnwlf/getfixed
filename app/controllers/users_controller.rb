@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
 
+	before_filter :set_user, except: [:index, :new, :create]
 	before_filter :authorize, only: [:edit, :update, :destroy]
 
 	# GET /users
@@ -13,11 +14,15 @@ class UsersController < ApplicationController
 		@user = User.find(params[:id])
 		@bikes = @user.bikes
 	end
-		
-	end
 
 	def new
-		@user = User.new
+		# don't let current users see the sign up view
+		if current_user
+			redirect_to user_path(current_user)
+		else
+			@user = User.new
+			render :new
+		end
 	end
 
 	def edit
@@ -61,3 +66,4 @@ private
 	end
 
 end
+
