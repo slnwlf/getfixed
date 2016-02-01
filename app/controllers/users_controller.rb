@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 
-	# before_filter :set_user, except: [:index, :new, :create]
+	before_filter :set_user, except: [:index, :new, :create]
 	before_filter :authorize, only: [:edit, :update, :destroy]
 
 	# GET /users
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		@user = current_user
+		 
 	end
 
 	# POST / users
@@ -63,6 +63,10 @@ private
 
 	def user_params
 		params.require(:user).permit(:name, :email, :password, :password_confirmation)
+	end
+
+	def set_user
+		@user = User.find(params[:id])
 	end
 
 end
