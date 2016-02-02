@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160201223218) do
+ActiveRecord::Schema.define(version: 20160202211709) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,7 +26,10 @@ ActiveRecord::Schema.define(version: 20160201223218) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.integer  "user_id"
+    t.string   "slug"
   end
+
+  add_index "bikes", ["slug"], name: "index_bikes_on_slug", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "name"

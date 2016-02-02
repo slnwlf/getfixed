@@ -3,29 +3,29 @@
 	<div class="col-md-8 col-md-offset-2 well">
 		
 		<% @bikes.reverse_each do |bike| %>
-		<div class="text-center voting-section col-sm-2">
-			<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default" do %>
-			<span class="glyphicon glyphicon-triangle-top"></span>
-			<%= bike.get_upvotes.size %>
-			<% end %>
-		</div>
-		<div class="bike_photo col-sm-4">
-			<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
-		</div>
-		<div class="text-section col-sm-6"
-			<strong>Name: </strong> <%= bike.name %><br>
-			<strong>Description: </strong> <%= bike.description %><br>
-			<strong>Posted by </strong><%= bike.user.name %></br>
-			<strong>Posted </strong><%= bike.created_at.strftime("%b. %d %Y") %>
-			<br>
-			
-			<div class="text-center">
-				<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary" %></p>
+		<div class="row">
+			<div class="text-center voting-section col-sm-2">
+				<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default" do %>
+				<span class="glyphicon glyphicon-triangle-top"></span>
+				<%= bike.get_upvotes.size %>
+				<% end %>
 			</div>
-			<hr>
+			<div class="bike_photo col-sm-4">
+				<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
+			</div>
+			<div class="text-section col-sm-6">
+				<strong>Name: </strong> <%= bike.name %><br>
+				<strong>Description: </strong> <%= bike.description %><br>
+				<strong>Posted by </strong><%= bike.user.name %></br>
+				<strong>Posted </strong><%= bike.created_at.strftime("%b. %d %Y") %>
+				<br>
+				
+				<div class="text-center">
+					<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary" %></p>
+				</div>
+				<hr>
+			</div>
 		</div>
-		<br>
 		<% end %>
-		</div>
 	</div>
 </div>

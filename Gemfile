@@ -46,6 +46,9 @@ gem 'pg'
 # AWS S3
 gem 'aws-sdk-v1'
 
+# friendly url
+gem 'friendly_id', '~> 5.1.0'
+
 # another gem for heroku
 group :production do
   gem 'rails_12factor'
