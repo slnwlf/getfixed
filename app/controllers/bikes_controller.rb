@@ -49,7 +49,7 @@ class BikesController < ApplicationController
 
 		# use the bike ID to find the bike in the database
  	  # and save it to an instance variable
-		@bike = Bike.find_by_id(bike_id)
+		@bike = Bike.friendly.find(bike_id)
 	end
 
 	def update
@@ -57,7 +57,7 @@ class BikesController < ApplicationController
 		bike_id = params[:id]
 
 		#edit bike
-		bike = Bike.find_by_id(bike_id)
+		bike = Bike.friendly.find(bike_id)
 
 		#whitelist params and save them to a variable
 		bike_params = params.require(:bike).permit(:name, :description, :image)
@@ -74,9 +74,9 @@ class BikesController < ApplicationController
 		bike_id = params[:id]
 
 		#use the bike ID to find the bike in the db
-		bike = Bike.find_by_id(bike_id)
+		bike = Bike.friendly.find(bike_id)
 
-		# destroy the creature
+		# destroy the bike
 		bike.destroy
 
 		# redirect to the bikes#show page
