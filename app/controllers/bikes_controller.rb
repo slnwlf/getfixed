@@ -16,7 +16,7 @@ class BikesController < ApplicationController
 
 	def create
 		#whitelist params and save them to a variable
-		bike_params = params.require(:bike).permit(:name, :description, :image)
+		bike_params = params.require(:bike).permit(:name, :description, :image, :slug)
 
 		#create a new bike from 'bike_params'
 		# bike = Bike.new(bike_params)
@@ -40,7 +40,7 @@ class BikesController < ApplicationController
 		bike_id = params[:id]
 	  #use 'bike id' to find the bike in the database
 	  #and save it to an instance variable
-		@bike = Bike.find_by_id(bike_id)
+		@bike = Bike.friendly.find(bike_id)
 	end
 
 	def edit
