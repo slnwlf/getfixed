@@ -89,7 +89,7 @@ class BikesController < ApplicationController
 		bike_id = params[:id]
 
 		#edit bike
-		bike = Bike.find_by_id(bike_id)
+		bike = Bike.friendly.find(bike_id)
 		
 		# Only allow logged in users to vote
 		bike.upvote_by current_user
@@ -97,6 +97,8 @@ class BikesController < ApplicationController
 		# redirect back to where we just were
 		redirect_to :back
 	end
+
+
 
 private
 
