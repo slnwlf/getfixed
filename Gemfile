@@ -43,6 +43,9 @@ gem 'acts_as_votable', '~> 0.10.0'
 # for heroku deploy
 gem 'pg'
 
+# AWS S3
+gem 'aws-sdk-v1'
+
 # another gem for heroku
 group :production do
   gem 'rails_12factor'
