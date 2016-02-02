@@ -3,8 +3,10 @@
 		<h2>Get Fixed - post your fixed gear bike</h2>
 		<% @bikes.reverse_each do |bike| %>
 		<p>
-			<strong>Name:</strong> <%= bike.name %><br>
-			<strong>Description:</strong> <%= bike.description %>
+			<strong>Name: </strong> <%= bike.name %><br>
+			<strong>Description: </strong> <%= bike.description %></p><br>
+			<strong>Posted by </strong><%= bike.user.name %></br>
+			<strong>Posted </strong><%= bike.created_at.strftime("%b. %d %Y") %></p>
 		</p>
 		<div class="bike_photo">
 			<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
@@ -15,7 +17,7 @@
 			<span class="glyphicon glyphicon-triangle-top"></span>
 			<%= bike.get_upvotes.size %>
 			
-			<% end %>
+		<% end %>
 		</div>
 		<div class="text-center">
 			<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary" %></p>
