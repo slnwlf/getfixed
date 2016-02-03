@@ -93,10 +93,15 @@ class BikesController < ApplicationController
 		bike = Bike.friendly.find(bike_id)
 		
 		# Only allow logged in users to vote
-		bike.upvote_by current_user
-
-		# redirect back to where we just were
-		redirect_to :back
+		if bike.upvote_by current_user
+			redirect_to :back
+		else
+			#throw error that they are not logged in
+			flash[:error] = "You must be logged in to vote"
+			redirect_to :back
+		end
+		
+		
 	end
 
 
