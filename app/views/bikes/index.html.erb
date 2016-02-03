@@ -19,9 +19,9 @@
 				<strong>Posted by </strong><%= bike.user.name %></br>
 				<strong>Post date: </strong><%= bike.created_at.strftime("%b. %d %Y") %>
 				<br>
-				
+				<br>
 				<div class="text-center">
-					<p><%= link_to "see bike", bike_path(bike), class: "btn btn-primary see_bike" %></p>
+					<p><%= link_to "bike details", bike_path(bike), class: "btn btn-primary see_bike" %></p>
 				</div>
 			</div>
 		</div>
