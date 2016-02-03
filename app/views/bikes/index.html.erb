@@ -1,6 +1,6 @@
 <h2 class="text-center">Join the Fixed Gear Nation - Show off your bike</h2>
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-7 col-md-offset-2">
 		
 		<% @bikes.reverse_each do |bike| %>
 		<div class="row bike_area well">
@@ -13,7 +13,7 @@
 			<div class="bike_photo col-sm-4">
 				<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
 			</div>
-			<div class="text-section col-sm-6">
+			<div class="text-section col-sm-5">
 				<strong>Name: </strong> <%= bike.name %><br>
 				<strong>Description: </strong> <%= bike.description %><br>
 				<strong>Posted by </strong><%= bike.user.name %></br>
