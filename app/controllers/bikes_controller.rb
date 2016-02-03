@@ -1,5 +1,6 @@
 class BikesController < ApplicationController
 	before_action :set_user
+	# before_action :bike_find, only: [:upvote]
 
 	#display all bikes
 	def index
@@ -85,10 +86,10 @@ class BikesController < ApplicationController
 
 	def upvote
 
-		#get the bike id so it can be edited
+		# get the bike id so it can be edited
 		bike_id = params[:id]
 
-		#edit bike
+		# edit bike
 		bike = Bike.friendly.find(bike_id)
 		
 		# Only allow logged in users to vote
