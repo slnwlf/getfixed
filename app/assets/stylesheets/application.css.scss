@@ -35,12 +35,24 @@ body {
 
 .bike_photo {
 	background-color: white; 
-	width: 300px;
+	width: 280px;
 	height: 200px;
-	margin: 2px; 
+	margin: 0 auto; 
 }
 
 .bike_area {
 	height: 220px; 
-	margin: 3px; 
+	margin: 4px auto; 
+}
+.see_bike {
+	margin: 5px;
+}
+.vote_button {
+	vertical-align: middle; 
+}
+.voting-section {
+	line-height: 180px; 
+}
+.active:hover {
+	background-color: white;
 }
