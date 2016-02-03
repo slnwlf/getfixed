@@ -6,6 +6,10 @@ class Bike < ActiveRecord::Base
 		new_record?
 	end
 
+	def score
+		self.get_upvotes.size
+	end
+
 	acts_as_votable
 	belongs_to :user
 
