@@ -1,17 +1,18 @@
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
-		<h2>This is the show page for a specific bike</h2>
-		<h3><%= @bike.name %></h3>
-		<p><%= @bike.description %></p>
+		<p><strong>Bike name: </strong><%= @bike.name %></p>
+		<p><strong>Description: </strong> <%= @bike.description %></p>
 		<p><%= image_tag @bike.image.url(:large) %></p>
 
-		<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
-		<span class="glyphicon glyphicon-triangle-top"></span>
-		<%= @bike.get_upvotes.size %>
-		<% end %>
+		<div class="text-center">
+			<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
+			<span class="glyphicon glyphicon-triangle-top"></span>
+			<%= @bike.get_upvotes.size %>
+			<% end %>
+		</div>
 
-		<p>Posted by <%= @bike.user.name %></p>
-		<p>Posted  <%= @bike.created_at.strftime("%b. %d %Y") %></p>
+		<p><strong>Posted by: </strong><%= @bike.user.name %></p>
+		<p><strong>Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
 
 		<div>
 		<% if current_user %>

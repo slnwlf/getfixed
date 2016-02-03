@@ -1,6 +1,6 @@
 <h2 class="text-center">Join the Fixed Gear Nation - Show off your bike</h2>
 <div class="row">
-	<div class="col-md-7 col-md-offset-2">
+	<div class="col-md-8 col-md-offset-2">
 		
 		<% @bikes.reverse_each do |bike| %>
 		<div class="row bike_area well active">
@@ -17,7 +17,7 @@
 				<strong>Name: </strong> <%= bike.name %><br>
 				<strong>Description: </strong> <%= bike.description %><br>
 				<strong>Posted by </strong><%= bike.user.name %></br>
-				<strong>Posted </strong><%= bike.created_at.strftime("%b. %d %Y") %>
+				<strong>Post date: </strong><%= bike.created_at.strftime("%b. %d %Y") %>
 				<br>
 				
 				<div class="text-center">

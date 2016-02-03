@@ -30,7 +30,7 @@
 body {
  	padding-top: 60px;
  	font-family: 'Source Sans Pro', sans-serif;
- 	font-size: 20px; 
+ 	font-size: 16px; 
  }
 
 .bike_photo {
@@ -55,4 +55,7 @@ body {
 }
 .active:hover {
 	background-color: white;
+}
+.well {
+	padding: 10px; 
 }
