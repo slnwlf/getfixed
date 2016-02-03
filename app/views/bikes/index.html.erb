@@ -5,7 +5,7 @@
 		<% @bikes.reverse_each do |bike| %>
 		<div class="row bike_area well">
 			<div class="text-center voting-section col-sm-2">
-				<%= link_to "/bikes/slug/like(.:format)", method: :put, class: "btn btn-default" do %>
+				<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default" do %>
 				<span class="glyphicon glyphicon-triangle-top"></span>
 				<%= bike.get_upvotes.size %>
 				<% end %>
