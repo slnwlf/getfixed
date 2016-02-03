@@ -17,7 +17,7 @@ class BikesController < ApplicationController
 
 	def create
 		#whitelist params and save them to a variable
-		bike_params = params.require(:bike).permit(:name, :description, :image)
+		bike_params = params.require(:bike).permit(:name, :description, :image, :slug)
 
 		#create a new bike from 'bike_params'
 		# bike = Bike.new(bike_params)
@@ -61,7 +61,7 @@ class BikesController < ApplicationController
 		bike = Bike.friendly.find(bike_id)
 
 		#whitelist params and save them to a variable
-		bike_params = params.require(:bike).permit(:name, :description, :image)
+		bike_params = params.require(:bike).permit(:name, :description, :image, :slug)
 
 		#update the bike associated with that ID
 		bike.update_attributes(bike_params)
@@ -106,6 +106,10 @@ private
 	def set_user
 		@user = current_user
 	end
+
+	# def bike_find
+	# 	@bike = Bike.friendly.find(bike_id)
+	# end
 		
 
 end
