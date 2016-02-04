@@ -1,6 +1,7 @@
-<h2 class="text-center">Join the Fixed Gear Nation - Show off your bike</h2>
 <div class="row">
 	<div class="col-md-8 col-md-offset-2">
+		<div class="header_title"><h2 class="text-center">Join the <span class="accent_text">Fixed Gear Nation</span> - show off your fixie</h2>
+		</div>
 		
 		<% @bikes.reverse_each do |bike| %>
 		<div class="row bike_area well active">
@@ -14,10 +15,10 @@
 				<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
 			</div>
 			<div class="text-section col-sm-5">
-				<strong>Name: </strong> <%= bike.name %><br>
-				<strong>Description: </strong> <%= bike.description %><br>
-				<strong>Posted by </strong><%= bike.user.name %></br>
-				<strong>Post date: </strong><%= bike.created_at.strftime("%b. %d %Y") %>
+				<strong class="accent">Name: </strong> <%= bike.name %><br>
+				<strong class="accent">Description: </strong> <%= bike.description %><br>
+				<strong class="accent">Posted by </strong><%= bike.user.name %></br>
+				<strong class="accent">Post date: </strong><%= bike.created_at.strftime("%b. %d %Y") %>
 				<br>
 				<br>
 				<div class="text-center">
