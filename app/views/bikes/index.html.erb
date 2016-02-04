@@ -12,7 +12,9 @@
 				<% end %>
 			</div>
 			<div class="bike_photo col-sm-4">
-				<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
+				<%= link_to bike_path(bike) do %>
+					<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
+				<% end %>	
 			</div>
 			<div class="text-section col-sm-5">
 				<strong class="accent">Name: </strong> <%= bike.name %><br>
