@@ -1,19 +1,19 @@
-# Fixed Gear Nation
+## Fixed Gear Nation
 
-**Fixed Gear Nation** is a community site for Fixed gear bicycle enthusiasts.  Community members can check out fixed gear builds and post their own bikes.
+A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear Nation** is a community website for Fixed gear bicycle enthusiasts.  Community members can browse fixed gear builds and post their own personal bikes.
 
-## Features
+# MVP Features
 
-* Users can see a newsfeed of posted bikes with name, description, and thumbnail image.
-* Users can post a bike with name, description, and photo.
+* Users can browse a newsfeed of posted bikes.  Each bike includes a name, description, and thumbnail image. (Read)
+* Users can post bikes. (Create)
 * Users can upvote bikes.  One vote per user per bike.
 * Users can share bike URLs - each bike has a readable URL.
 * Users can see the details of a bike, including a larger photo. 
 * Users can see their own bike (or quiver of bikes) on their profile page
-* Users can edit or delete their own bikes on the bike details page
+* Users can edit or delete their own bikes on the bike details page (Update, Delete)
 * Date of post is listed next to each bike
 
-## Technologies used
+# Technologies used
 
 * Ruby on Rails
 * Bootstrap CSS for responsive design
@@ -25,17 +25,27 @@
 * Paperclip gem for image upload
 * Amazon AWS S3 for image storage
 * Postgres database
-* Heroku for app hosting
+* Heroku app hosting
 
-## Wishlist
+# Wishlist
 
-* Forgot password helper
+* 'Forgot password' helper
 * Better responsive behavior
 * Bike attribute:  location
-* Sort bikes by popularity of vote
-* Search for bikes
-* Report post - innapproriate 
-* Contact me - for inquiries or bug reporting
+* Sort bikes by popularity of vote or by order of date posted 
+* Search for bikes - keyword search
+* Report post - if innapproriate or offensive
+* Contact the developer - for inquiries and bug reporting
 * Page views for bike details page
 * Client-side validations
 * Zoom photo on bike details page
+* Push to public site: www.fixedgearnation.com
+* Better design
+* Each bike div in index page is clickable 
+* Admin dashboard for deleting / editing bikes
+* Social login - oAuth
+
+# Heroku app
+
+Can be found at  <http://fixedgearnation.herokuapp.com>  
+ 
