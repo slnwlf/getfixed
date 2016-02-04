@@ -15,7 +15,7 @@
 		<p><strong>Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
 
 		<div>
-		<% if current_user %>
+		<% if (current_user && (current_user.id == @bike.user_id)) %>
 			<p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %></p>
 			<p><%= button_to "Delete", @bike, method: :delete, class: "btn btn-primary" %></p>
 		<% end %>
