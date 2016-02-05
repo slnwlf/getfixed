@@ -7,15 +7,17 @@ A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear
 * Users can browse a newsfeed of posted bikes.  Each bike includes a name, description, and thumbnail image. (Read)
 * Users can post bikes. (Create)
 * Users can upvote bikes.  One vote per user per bike.
-* Users can share bike URLs - each bike has a readable URL.
+* Each bike has a readable URL.
 * Users can see the details of a bike, including a larger photo. 
 * Users can see their own bike (or quiver of bikes) on their profile page
+* Users can see other user's profile pages, with their quiver of bikes
 * Users can edit or delete their own bikes on the bike details page (Update, Delete)
 * Date of post is listed next to each bike
 
 # Technologies used
 
 * Ruby on Rails
+* ERB templating
 * Bootstrap CSS for responsive design
 * Bootswatch Cosmo CSS template
 * Acts as Votable gem for upvoting
@@ -29,23 +31,20 @@ A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear
 
 # Wishlist
 
+* Commenting on a bike
 * 'Forgot password' helper
 * Better responsive behavior
-* Bike attribute:  location
+* Bike attribute:  location with autofill
 * Sort bikes by popularity of vote or by order of date posted 
 * Search for bikes - keyword search
 * Report post - if innapproriate or offensive
 * Contact the developer - for inquiries and bug reporting
-* Page views for bike details page
-* Client-side validations
-* Zoom photo on bike details page
-* Push to public site: www.fixedgearnation.com
 * Better design
-* Each bike div in index page is clickable 
-* Admin dashboard for deleting / editing bikes
+* Admin dashboard for deleting / editing bikes / users
 * Social login - oAuth
+* Push to public site: www.fixedgearnation.com
 
-# Heroku app
+# Heroku demo app
 
 Can be found at  <http://fixedgearnation.herokuapp.com>  
  
