@@ -1,5 +1,5 @@
 <div class="row">
-	<div class="col-md-8 col-md-offset-2">
+	<div class="col-md-10 col-md-offset-1">
 		<div class="header_title"><h2 class="text-center">Join the <span class="accent_text">Fixed Gear Nation</span> - show off your fixie</h2>
 		</div>
 		
@@ -16,7 +16,7 @@
 					<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
 				<% end %>	
 			</div>
-			<div class="text-section col-sm-5">
+			<div class="text-section col-sm-6">
 				<strong class="accent">Name: </strong> <%= bike.name %><br>
 				<strong class="accent">Description: </strong> <%= bike.description %><br>
 				<strong class="accent">Posted by: </strong><%= link_to bike.user.name, bike_path(bike) %></br>
@@ -25,6 +25,19 @@
 				<br>
 				<div class="text-center">
 					<p><%= link_to "bike details", bike_path(bike), class: "btn btn-primary see_bike" %></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<% bike.comments.each do |comment| %>
+						<p><strong><%= comment.user.name %>: </strong> <%= comment.content %> (<%= time_ago_in_words(comment.created_at) %> ago)</p>
+					<% end %>
+					<%= form_for [bike, @comment] do |f| %>
+					  <div class="form-group">
+					    <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control", autofocus: true %>
+					  </div>
+					  <%= f.submit "Save Comment", class: "btn btn-block btn-default" %>
+					<% end %>
 				</div>
 			</div>
 		</div>

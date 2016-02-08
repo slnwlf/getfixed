@@ -6,7 +6,7 @@ class BikesController < ApplicationController
 	def index
 		#get all bikes from db and save to instance variable
 		@bikes = Bike.all 
-
+		@comment = Comment.new
 	end
 
 	#show the new bike form
