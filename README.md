@@ -1,6 +1,6 @@
 ## Fixed Gear Nation
 
-A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear Nation** is a community website for Fixed gear bicycle enthusiasts.  Community members can browse fixed gear builds and post their own personal bikes.
+A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear Nation** is a community website for Fixed gear bicycle enthusiasts.  Community members can browse fixed gear builds and show off their own bike(s).
 
 # MVP Features
 
@@ -9,6 +9,7 @@ A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear
 * Users can upvote bikes.  One vote per user per bike.
 * Each bike has a readable URL.
 * Users can see the details of a bike, including a larger photo. 
+* Users can comment on a bike
 * Users can see their own bike (or quiver of bikes) on their profile page
 * Users can see other user's profile pages, with their quiver of bikes
 * Users can edit or delete their own bikes on the bike details page (Update, Delete)
@@ -31,7 +32,6 @@ A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear
 
 # Wishlist
 
-* Commenting on a bike
 * 'Forgot password' helper
 * Better responsive behavior
 * Bike attribute:  location with autofill
@@ -46,5 +46,10 @@ A fixed gear bicycle is a single-speed bicycle without a freewheel. **Fixed Gear
 
 # Heroku demo app
 
-Can be found at  <http://fixedgearnation.herokuapp.com>  
+Check it out at  <http://fixedgearnation.herokuapp.com>  
+
+# Developers
+
+* Dave Sloan - <https://github.com/slnwlf>
+* Trung Huynh - <https://github.com/tkhuynh>
  
