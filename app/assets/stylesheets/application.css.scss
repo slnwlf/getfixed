@@ -41,8 +41,8 @@ body {
 }
 
 .bike_area {
-	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
-	margin-bottom: 10px;
+	height: 220px; 
+	margin: 4px auto; 
 }
 .see_bike {
 	margin: 5px;
@@ -69,9 +69,4 @@ body {
 }
 .accent {
 	color: #ff7518;
-}
-
-/*bike index*/
-.comment-form {
-	padding-bottom: 10px;
 }

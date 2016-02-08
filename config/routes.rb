@@ -8,10 +8,6 @@ Rails.application.routes.draw do
   	end
   end
 
-  resources :bikes do
-    resources :comments, except: [:index, :show]
-  end
-
 #    Prefix Verb   URI Pattern               Controller#Action
 #      root GET    /                         bikes#index
 # like_bike PUT    /bikes/:id/like(.:format) bikes#upvote

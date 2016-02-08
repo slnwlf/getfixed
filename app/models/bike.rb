@@ -12,7 +12,6 @@ class Bike < ActiveRecord::Base
 
 	acts_as_votable
 	belongs_to :user
-	has_many :comments, dependent: :destroy
 
 	validates :name, presence: true
 	validates :description, length: {minimum: 6}, on: :create
