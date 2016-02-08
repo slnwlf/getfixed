@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
 
-	before_filter :set_user, except: [:index, :new, :create]
-	before_filter :authorize, only: [:edit, :update, :destroy]
+	before_action :set_user, except: [:index, :new, :create]
+	before_action :authorize, only: [:edit, :update, :destroy]
 
 	# GET /users
 	def index
@@ -21,27 +21,31 @@ class UsersController < ApplicationController
 			redirect_to user_path(current_user)
 		else
 			@user = User.new
-			render :new
-		end
-	end
-
-	def edit
-		unless current_user == @user
-			flash[:error] = "You can onlt edit your profile."
-			redirect_to user_path(current_user)
 		end
 	end
 
 	# POST / users
 	def create
-		user = User.new(user_params)
-		puts user
-		if user.save
-			session[:user_id] = user.id 
-			redirect_to '/'
-		else
-			flash[:notice] = user.errors.map{ |k,v| "#{k} #{v}".capitalize }
-			redirect_to '/signup'
+    # don't let current_user create new account
+    if current_user
+      redirect_to user_path(current_user)
+    else
+      @user = User.new(user_params)
+      if @user.save
+        session[:user_id] = @user.id
+        flash[:notice] = "Successfully signed up."
+        redirect_to user_path(@user)
+      else
+        flash[:error] = @user.errors.full_messages.join(", ")
+        redirect_to signup_path
+      end
+    end
+  end
+
+  def edit
+		unless current_user == @user
+			flash[:error] = "You can onlt edit your profile."
+			redirect_to user_path(current_user)
 		end
 	end
 
@@ -76,7 +80,7 @@ private
 	end
 
 	def set_user
-		@user = User.find(params[:id])
+		@user = User.find_by_id(params[:id])
 	end
 
 end
