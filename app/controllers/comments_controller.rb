@@ -9,10 +9,10 @@ class CommentsController < ApplicationController
     @bike.comments << @comment
     if @comment.save
       flash[:notice] = "Successfully added comment."
-      redirect_to bikes_path
+      redirect_to bike_path(@bike)
     else
       flash[:error] = @comment.errors.full_messages.join(", ")
-      redirect_to bikes_path
+      redirect_to bike_path(@bike)
     end
   end
 

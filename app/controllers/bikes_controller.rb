@@ -5,8 +5,7 @@ class BikesController < ApplicationController
 	#display all bikes
 	def index
 		#get all bikes from db and save to instance variable
-		@bikes = Bike.all 
-		@comment = Comment.new
+		@bikes = Bike.all
 	end
 
 	#show the new bike form
@@ -42,6 +41,7 @@ class BikesController < ApplicationController
 	  #use 'bike id' to find the bike in the database
 	  #and save it to an instance variable
 		@bike = Bike.friendly.find(bike_id)
+		@comment = Comment.new
 	end
 
 	def edit

@@ -31,25 +31,6 @@
 						</div>
 					</div>
 					<br>
-					<div class="row">
-						<div class="col-sm-10 col-sm-offset-1">
-							<div class="row">
-								<div class="col-sm-12 comment-form">
-									<% bike.comments.each do |comment| %>
-										<p><strong><%= comment.user.name %>: </strong> <%= comment.content %> (<%= time_ago_in_words(comment.created_at) %> ago)</p>
-									<% end %>
-									<% if current_user %>
-										<%= form_for [bike, @comment] do |f| %>
-										  <div class="form-group">
-										    <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control", autofocus: true %>
-										  </div>
-										  <%= f.submit "Comment", class: "btn btn-default" %>
-										<% end %>
-									<% end %>
-								</div>
-							</div>
-						</div>
-					</div>
 				</div>
 			<% end %>
 		</div>
