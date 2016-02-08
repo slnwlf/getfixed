@@ -26,7 +26,10 @@ class UsersController < ApplicationController
 	end
 
 	def edit
-		 
+		unless current_user == @user
+			flash[:error] = "You can onlt edit your profile."
+			redirect_to user_path(current_user)
+		end
 	end
 
 	# POST / users
@@ -43,21 +46,28 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		@user = current_user
-		user_params = params.require(:user).permit(:name, :email)
-		puts user_params
-		puts @user.update_attributes(user_params)
-		if @user.update_attributes(user_params)
-			redirect_to edit_user_path
+		if current_user == @user
+			if @user.update_attributes(user_params)
+				flash[:notice] = "Successfully edit profile."
+				redirect_to user_path(@user)
+			else
+				redirect_to edit_user_path(@user)
+				flash[:error] = @user.errors.full_messages.join(", ")
+			end
 		end
 	end
 
 	def destroy
-		@user.destroy
-		respond_to do |format|
-			format.html { redirect_to users_url, notice: "User was successfully deleted." }
-		end
-	end
+    # only let current_user delete their own account
+    if current_user == @user
+      @user.destroy
+      session[:user_id] = nil
+      flash[:notice] = "Successfully deleted profile."
+      redirect_to root_path
+    else
+      redirect_to user_path(current_user)
+    end
+  end
 
 private
 
