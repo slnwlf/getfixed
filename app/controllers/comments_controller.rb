@@ -6,7 +6,6 @@ class CommentsController < ApplicationController
 
   def create
   	@comment = current_user.comments.new(comment_params)
-  	byebug
     @bike.comments << @comment
     if @comment.save
       flash[:notice] = "Successfully added comment."
