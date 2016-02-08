@@ -41,8 +41,8 @@ body {
 }
 
 .bike_area {
-	height: 220px; 
-	margin: 4px auto; 
+	box-shadow: 0 0 10px 1px rgba(0,0,0,0.25);
+	margin-bottom: 10px;
 }
 .see_bike {
 	margin: 5px;
@@ -69,4 +69,10 @@ body {
 }
 .accent {
 	color: #ff7518;
+}
+.bike-pic {
+	max-height: 250px;
+}
+.comment {
+	margin-bottom: 0;
 }

@@ -1,25 +1,44 @@
-<div class="row">
-	<div class="col-md-6 col-md-offset-3">
-		<p><strong>Bike name: </strong><%= @bike.name %></p>
-		<p><strong>Description: </strong> <%= @bike.description %></p>
-		<p><%= image_tag @bike.image.url(:large) %></p>
-
-		<div class="text-center">
-			<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
-			<span class="glyphicon glyphicon-triangle-top"></span>
-			<%= @bike.get_upvotes.size %>
-			<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-10 col-md-offset-1">
+			<div class="row">
+				<div class="col-md-5">
+					<br>
+					<%= image_tag @bike.image.url(:large), class: "img-responsive bike-pic" %>
+					<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
+						<span class="glyphicon glyphicon-triangle-top"></span>
+						<%= @bike.get_upvotes.size %>
+					<% end %>
+					<% if (current_user && (current_user.id == @bike.user_id)) %>
+						<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
+						<%= link_to "Delete", @bike, method: :delete, class: "btn btn-primary" %>
+					<% end %>
+				</div>
+				<div class="col-md-7">
+					<h3><strong>Bike name: </strong><%= @bike.name %></h3>
+					<p><strong>Description: </strong><%= @bike.description %></p>
+					<p><strong>Posted by: </strong><%= @bike.user.name %></p>
+					<p><strong>Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
+					<hr>
+					<% @bike.comments.each do |comment| %>
+						<p class="comment"><strong><%= link_to comment.user.name, user_path(comment.user) %></strong></p>
+						<p class="comment">&emsp;<%= comment.content %> (<%= time_ago_in_words(comment.created_at) %> ago)</p>
+						<% if current_user == @bike.user or current_user == comment.user %>
+							&emsp;<%= link_to "Edit", edit_bike_comment_path(@bike, comment) %>
+							&emsp;<%= link_to 'Delete', [@bike, comment], method: :delete, data: {confirm: "Are you sure?"} %>
+						<% end %>
+					<hr>
+					<% end %>
+					<% if current_user %>
+						<%= form_for [@bike, @comment] do |f| %>
+						  <div class="form-group">
+						    <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control", autofocus: true %>
+						  </div>
+						  <%= f.submit "Comment", class: "btn btn-default" %>
+						<% end %>
+					<% end %>
+				</div>
+			</div>
 		</div>
-
-		<p><strong>Posted by: </strong><%= @bike.user.name %></p>
-		<p><strong>Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
-
-		<div>
-		<% if (current_user && (current_user.id == @bike.user_id)) %>
-			<p><%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %></p>
-			<p><%= button_to "Delete", @bike, method: :delete, class: "btn btn-primary" %></p>
-		<% end %>
-		</div>
-
 	</div>
 </div>
