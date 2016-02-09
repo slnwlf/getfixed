@@ -16,6 +16,7 @@
 				</div>
 				<div class="col-md-7">
 					<h3><strong>Bike name: </strong><%= @bike.name %></h3>
+					<p><strong>Location: </strong><%= @bike.location %></p>
 					<p><strong>Description: </strong><%= @bike.description %></p>
 					<p><strong>Posted by: </strong><%= @bike.user.name %></p>
 					<p><strong>Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
