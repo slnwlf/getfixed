@@ -22,7 +22,7 @@
 					<h3><strong class="accent">Bike name: </strong><%= @bike.name %></h3>
 					<p><strong class="accent">Location: </strong><%= @bike.location %></p>
 					<p><strong class="accent">Description: </strong><%= @bike.description %></p>
-					<p><strong class="accent">Posted by: </strong><%= link_to @bike.user.name, user_path(@user) %></p>
+					<p><strong class="accent">Posted by: </strong><%= link_to @bike.user.name, user_path(@bike.user) %></p>
 					<p><strong class="accent">Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
 					<hr>
 					<% @bike.comments.each do |comment| %>
