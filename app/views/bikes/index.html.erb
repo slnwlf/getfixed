@@ -22,7 +22,7 @@
 							<strong class="accent">Name: </strong> <%= bike.name %><br>
 							<strong class="accent">Location: </strong> <%= bike.location %><br>
 							<strong class="accent">Posted by: </strong><%= link_to bike.user.name, bike_path(bike) %></br>
-							<strong class="accent">Post date: </strong><%= bike.created_at.strftime("%b. %d %Y") %>
+							<strong class="accent">Post date: </strong><%= bike.created_at.strftime("%b. %d, %Y") %>
 							<br>
 							<br>
 							<div class="text-center">
