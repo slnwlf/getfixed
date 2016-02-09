@@ -15,10 +15,11 @@
 					<% end %>
 				</div>
 				<div class="col-md-7">
-					<h3><strong>Bike name: </strong><%= @bike.name %></h3>
-					<p><strong>Description: </strong><%= @bike.description %></p>
-					<p><strong>Posted by: </strong><%= @bike.user.name %></p>
-					<p><strong>Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
+					<h3><strong class="accent">Bike name: </strong><%= @bike.name %></h3>
+					<p><strong class="accent">Location: </strong><%= @bike.location %></p>
+					<p><strong class="accent">Description: </strong><%= @bike.description %></p>
+					<p><strong class="accent">Posted by: </strong><%= @bike.user.name %></p>
+					<p><strong class="accent">Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
 					<hr>
 					<% @bike.comments.each do |comment| %>
 						<p class="comment"><strong><%= link_to comment.user.name, user_path(comment.user) %></strong></p>
