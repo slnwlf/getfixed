@@ -13,7 +13,7 @@
 					<% end %>
 					<% if (current_user && (current_user.id == @bike.user_id)) %>
 						<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
-						<%= link_to "Delete", @bike, method: :delete, class: "btn btn-primary" %>
+						<%= link_to "Delete", @bike, method: :delete, data: {confirm: "Are you sure you want to delete this bike?"}, class: "btn btn-primary" %>
 					<% end %>
 					
 					</div>
