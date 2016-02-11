@@ -5,7 +5,7 @@
 			</div>
 			<br>
 			<% @bikes.reverse_each do |bike| %>
-				<div class="bike_area">
+				<div class="bike_area active">
 					<div class="row">
 						<div class="text-center voting-section col-sm-2">
 							<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default vote_button" do %>
