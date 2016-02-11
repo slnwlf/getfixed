@@ -36,7 +36,7 @@ class UsersController < ApplicationController
       	UserMailer.welcome(@user).deliver_now
         session[:user_id] = @user.id
         flash[:notice] = "Successfully signed up."
-        redirect_to user_path(@user)
+        redirect_to root_path
       else
         flash[:error] = @user.errors.full_messages.join(", ")
         redirect_to signup_path
