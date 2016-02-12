@@ -6,6 +6,6 @@ class ContactMailer < ApplicationMailer
   def new_contact(contact)
     @contact = contact
     
-    mail subject: "Message from #{contact.name}"
+    # mail subject: "Message from #{contact.name}"
   end
 end
