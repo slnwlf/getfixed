@@ -1,11 +1,9 @@
 <div class="container">
-	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="row">
-				<div class="col-md-5">
+ 
+			<div class="row 2">
+				<div class="col-md-10 col-md-offset-1">
 					<br>
-					<%= image_tag @bike.image.url(:large), class: "img-responsive bike-pic" %>
-					
+				
 					<div class="bike_show_buttons text-center">
 					<%= link_to " Home", "/", method: :get, class: "glyphicon glyphicon-menu-left btn btn-default" %>
 					<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
@@ -19,13 +17,16 @@
 					
 					</div>
 				</div>
-				<div class="col-md-7">
+				<div class="col-md-10 col-md-offset-1">
 					<h3><strong class="accent">Bike name: </strong><%= @bike.name %></h3>
 					<p><strong class="accent">Location: </strong><%= @bike.location %></p>
-					<p><strong class="accent">Description: </strong><%= @bike.description %></p>
+					<p><strong class="accent">Build details / Description: </strong><%= @bike.description %></p>
 					<p><strong class="accent">Posted by: </strong><%= link_to @bike.user.name, user_path(@bike.user) %></p>
 					<p><strong class="accent">Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
+			
+					<%= image_tag @bike.image.url(:large), class: "img-responsive bike-pic-show" %>
 					<hr>
+	
 					<% @bike.comments.each do |comment| %>
 						<p class="comment"><strong><%= link_to comment.user.name, user_path(comment.user) %></strong></p>
 						<p class="comment">&emsp;<%= comment.content %> (<%= time_ago_in_words(comment.created_at) %> ago)</p>
@@ -43,8 +44,7 @@
 						  <%= f.submit "Comment", class: "btn btn-default" %>
 						<% end %>
 					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+				</div> <!-- col-md-7 -->
+			</div> <!-- row 2 -->
+ 
+</div> <!-- container -->
