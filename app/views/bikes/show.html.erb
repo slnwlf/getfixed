@@ -1,50 +1,50 @@
 <div class="container">
-	<div class="row">
+	<div class="row 2">
 		<div class="col-md-10 col-md-offset-1">
+			<br>
+			<div class="bike_show_buttons text-center">
+				<%= link_to " Home", "/", method: :get, class: "glyphicon glyphicon-menu-left btn btn-default" %>
+				<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
+				<span class="glyphicon glyphicon-triangle-top"></span>
+				<%= @bike.get_upvotes.size %>
+				<% end %>
+				<% if (current_user && (current_user.id == @bike.user_id)) %>
+				<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
+				<%= link_to "Delete", @bike, method: :delete, data: {confirm: "Are you sure you want to delete this bike?"}, class: "btn btn-primary" %>
+				<% end %>
+			</div>
 			<div class="row">
-				<div class="col-md-5">
-					<br>
-					<%= image_tag @bike.image.url(:large), class: "img-responsive bike-pic" %>
-					
-					<div class="bike_show_buttons text-center">
-					<%= link_to " Home", "/", method: :get, class: "glyphicon glyphicon-menu-left btn btn-default" %>
-					<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
-						<span class="glyphicon glyphicon-triangle-top"></span>
-						<%= @bike.get_upvotes.size %>
-					<% end %>
-					<% if (current_user && (current_user.id == @bike.user_id)) %>
-						<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
-						<%= link_to "Delete", @bike, method: :delete, data: {confirm: "Are you sure you want to delete this bike?"}, class: "btn btn-primary" %>
-					<% end %>
-					
-					</div>
-				</div>
-				<div class="col-md-7">
+				<div class="col-md-10 col-md-offset-1">
 					<h3><strong class="accent">Bike name: </strong><%= @bike.name %></h3>
 					<p><strong class="accent">Location: </strong><%= @bike.location %></p>
-					<p><strong class="accent">Description: </strong><%= @bike.description %></p>
+					<p><strong class="accent">Build details / Description: </strong><%= @bike.description %></p>
 					<p><strong class="accent">Posted by: </strong><%= link_to @bike.user.name, user_path(@bike.user) %></p>
 					<p><strong class="accent">Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
-					<hr>
-					<% @bike.comments.each do |comment| %>
-						<p class="comment"><strong><%= link_to comment.user.name, user_path(comment.user) %></strong></p>
-						<p class="comment">&emsp;<%= comment.content %> (<%= time_ago_in_words(comment.created_at) %> ago)</p>
-						<% if current_user == @bike.user or current_user == comment.user %>
+					</div> <!-- col 10 -->
+					</div> <!-- row for bike details -->
+					<div class="row">
+						<div class="col-md-10 col-md-offset-1">
+							<%= image_tag @bike.image.url(:large), class: "img-responsive bike-pic-show" %>
+							</div>	<!-- bike photo col -->
+							</div> <!-- row -->
+							<hr>
+							<% @bike.comments.each do |comment| %>
+							<p class="comment"><strong><%= link_to comment.user.name, user_path(comment.user) %></strong></p>
+							<p class="comment">&emsp;<%= comment.content %> (<%= time_ago_in_words(comment.created_at) %> ago)</p>
+							<% if current_user == @bike.user or current_user == comment.user %>
 							&emsp;<%= link_to "Edit", edit_bike_comment_path(@bike, comment) %>
 							&emsp;<%= link_to 'Delete', [@bike, comment], method: :delete, data: {confirm: "Are you sure?"} %>
-						<% end %>
-					<hr>
-					<% end %>
-					<% if current_user %>
-						<%= form_for [@bike, @comment] do |f| %>
-						  <div class="form-group">
-						    <%= f.text_area :content, placeholder: "Type your comment here", class: "form-control", autofocus: true %>
-						  </div>
-						  <%= f.submit "Comment", class: "btn btn-default" %>
-						<% end %>
-					<% end %>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+							<% end %>
+							<hr>
+							<% end %>
+							<% if current_user %>
+							<%= form_for [@bike, @comment] do |f| %>
+							<div class="form-group">
+								<%= f.text_area :content, placeholder: "Type your comment here", class: "form-control", autofocus: true %>
+							</div>
+							<%= f.submit "Comment", class: "btn btn-default" %>
+							<% end %>
+							<% end %>
+							</div> <!-- col-md-10 -->
+							</div> <!-- row 2 -->
+							</div> <!-- container -->

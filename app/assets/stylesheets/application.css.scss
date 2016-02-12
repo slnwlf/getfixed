@@ -70,9 +70,14 @@ body {
 .accent {
 	color: #ff7518;
 }
-.bike-pic {
+.bike-pic-index {
 	max-height: 250px;
+	margin: 0 auto; 
 	margin-top: 5px; 
+}
+.bike-pic-show {
+	max-height: 600px;
+	margin: 0 auto; 
 }
 .comment {
 	margin-bottom: 0;
