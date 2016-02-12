@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require turbolinks
+//= require jquery.elevateZoom-3.0.8.min
 //= require_tree .
 
 $(function() {
@@ -26,4 +26,8 @@ $(function() {
         };
     })(this));
     return setTimeout(flashCallback, 2000);
+});
+
+$(function() {
+    $(".bike-pic-show").elevateZoom({ zoomType  : "inner", cursor: "crosshair" });
 });
