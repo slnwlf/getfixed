@@ -1,0 +1,28 @@
+<div class="row">
+  <div class="col-md-6 col-md-offset-3 well">
+      <div class="text-center">
+      <h3>Please send us any comments or feedback.  thanks!</h3>
+    </div>
+    <%= form_for @contact, url: contact_path do |f| %>
+    <fieldset>
+      <div class="field">
+        <%= f.text_field :name, placeholder: "Name", :class => "form-control" %>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.email_field :email, placeholder: "Email", :class => "form-control"%>
+      </div>
+      <br>
+      <div class="field">
+        <%= f.text_area :content, placeholder: "Message", :class => "form-control"%>
+      </div>
+    </fieldset>
+    <br>
+    <fieldset>
+      <div class="field text-center">
+        <%= f.submit "Send", :class => "btn btn-primary" %>
+      </div>
+    </fieldset>
+    <% end %>
+  </div>
+</div>
