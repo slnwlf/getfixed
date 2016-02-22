@@ -34,4 +34,15 @@ $(function() {
     } else {
         $(".bike-pic-show").elevateZoom({zoomWindowPosition: 1, zoomWindowOffetx: 10});
     }
+    function onGeocomplete() {
+        var options = {
+            types: ['(cities)'],
+            componentRestrictions: {
+                country: "usa"
+            }
+        };
+        $(".bike_location").geocomplete(options);
+    }
+
+    onGeocomplete();
 });
