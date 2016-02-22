@@ -1,7 +1,7 @@
 <div class="container bike-show">
 	<div class="row">
 		<div class="col-md-5">
-			<%= image_tag @bike.image.url(:medium), data: {zoom_image: @bike.image.url(:large)}, class: "img-responsive bike-pic-show" %>
+			<%= image_tag @bike.image.url(:large), data: {zoom_image: @bike.image.url(:xl)}, class: "img-responsive bike-pic-show" %>
 			<div class="bike_show_buttons text-center">
 				<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
 					<span class="glyphicon glyphicon-triangle-top"></span>
@@ -16,10 +16,11 @@
 			
 		<div class="col-md-7">
 			<h3><strong class="accent">Bike name: </strong><%= @bike.name %></h3>
-			<p><strong class="accent">Location: </strong><%= @bike.location %></p>
+			<!-- remove the contry in location -->
+			<p><strong class="accent">Location: </strong><%= @bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %></p>
 			<p><strong class="accent">Build details / Description: </strong><%= @bike.description %></p>
 			<p><strong class="accent">Posted by: </strong><%= link_to @bike.user.name, user_path(@bike.user) %></p>
-			<p><strong class="accent">Post date: </strong><%= @bike.created_at.strftime("%b. %d %Y") %></p>
+			<p><strong class="accent">Post date: </strong><%= @bike.created_at.localtime.strftime("%b. %d %Y") %></p>
 		</div>
 	</div>
 	<div class="row comment_area">

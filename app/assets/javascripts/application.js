@@ -29,5 +29,20 @@ $(function() {
 });
 
 $(function() {
-    $(".bike-pic-show").elevateZoom({ zoomType  : "inner", cursor: "crosshair" });
+    if ($(window).width() < 600) {
+        $(".bike-pic-show").elevateZoom({constrainType:"height", constrainSize:274, zoomType: "lens", containLensZoom: true, gallery:'gallery_01', cursor: 'pointer', galleryActiveClass: "active"});
+    } else {
+        $(".bike-pic-show").elevateZoom({zoomWindowPosition: 1, zoomWindowOffetx: 10});
+    }
+    function onGeocomplete() {
+        var options = {
+            types: ['(cities)'],
+            componentRestrictions: {
+                country: "usa"
+            }
+        };
+        $(".bike_location").geocomplete(options);
+    }
+
+    onGeocomplete();
 });

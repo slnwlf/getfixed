@@ -26,16 +26,23 @@
 						<% end %>
 						<li><%= link_to "Contact Us", new_contact_path %></li>
 					</ul>
-					</div><!-- /.navbar-collapse -->
-					</div><!-- /.container-fluid -->
-				</nav>
-				<!-- 	display flash messages above the yield block -->
-				<% flash.each do |name, msg| %>
-				<div class="alert <%= name == 'error' ? 'alert-danger' : 'alert-success' %>">
-					<div><%= msg %></div>
-					<% end %>
-				</div>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<!-- 	display flash messages above the yield block -->
+		<% flash.each do |name, msg| %>
+		<div class="alert alert-danger" role="alert">
+			<div><%= msg %></div>
+			<% end %>
+		</div>
 
-				<%= yield %>
-			</body>
-		</html>
+		<%= yield %>
+
+		<!-- google maps -->
+
+		<!-- geocomplete -->
+		<script src="//cdn.jsdelivr.net/jquery.geocomplete/1.6.4/jquery.geocomplete.min.js"></script>
+		<script src="http://maps.googleapis.com/maps/api/js?&amp;libraries=places"></script>
+
+	</body>
+</html>
