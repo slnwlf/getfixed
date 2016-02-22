@@ -1,6 +1,6 @@
 class BikesController < ApplicationController
 	before_action :find_bike, except: [:index, :new, :create]
-  before_action :authorize
+  before_action :authorize, except: [:index, :show]
 
 	def index
 		@bikes = Bike.all
