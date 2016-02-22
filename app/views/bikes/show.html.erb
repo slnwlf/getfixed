@@ -1,7 +1,7 @@
 <div class="container bike-show">
 	<div class="row">
 		<div class="col-md-5">
-			<%= image_tag @bike.image.url(:medium), data: {zoom_image: @bike.image.url(:large)}, class: "img-responsive bike-pic-show" %>
+			<%= image_tag @bike.image.url(:large), data: {zoom_image: @bike.image.url(:xl)}, class: "img-responsive bike-pic-show" %>
 			<div class="bike_show_buttons text-center">
 				<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
 					<span class="glyphicon glyphicon-triangle-top"></span>
