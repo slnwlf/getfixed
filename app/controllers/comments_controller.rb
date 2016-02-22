@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
 
 	before_action :set_bike
   before_action :set_comment, except: [:new, :create]
-  before_action :authorize
+  before_action :authorize, except: [:index, :show]
 
   def create
   	@comment = current_user.comments.new(comment_params)
