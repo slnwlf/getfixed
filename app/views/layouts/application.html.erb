@@ -31,7 +31,7 @@
 		</nav>
 		<!-- 	display flash messages above the yield block -->
 		<% flash.each do |name, msg| %>
-		<div class="alert alert-danger" role="alert">
+		<div class="alert <%= name == 'error' ? 'alert-danger' : 'alert-success' %>">
 			<div><%= msg %></div>
 			<% end %>
 		</div>
