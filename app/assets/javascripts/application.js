@@ -15,6 +15,7 @@
 //= require bootstrap-sprockets
 //= require jquery.elevateZoom-3.0.8.min
 //= require_tree .
+//= require analytics
 
 $(function() {
     var flashCallback;
