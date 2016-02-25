@@ -34,7 +34,7 @@ class BikesController < ApplicationController
 	def update
 		if current_user == @bike.user
 			if @bike.update_attributes(bike_params)
-				flash[:notice] = "Successfully edit a bike."
+				flash[:notice] = "Successfully edited a bike."
 				redirect_to bike_path(@bike)
 			else
 				flash[:error] = @bike.errors.full_messages.join(", ")
@@ -48,7 +48,7 @@ class BikesController < ApplicationController
 	def destroy
 		if current_user == @bike.user
 			@bike.destroy
-			flash[:notice] = "Successfully delete a bike."
+			flash[:notice] = "Successfully deleted a bike."
 			redirect_to bikes_path
 		else
 			flash[:error] = "You can only delete your own bike."
