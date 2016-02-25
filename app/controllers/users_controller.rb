@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def edit
 		unless current_user == @user
-			flash[:error] = "You can onlt edit your profile."
+			flash[:error] = "You can only edit your own profile."
 			redirect_to user_path(current_user)
 		end
 	end
@@ -56,7 +56,7 @@ class UsersController < ApplicationController
 	def update
 		if current_user == @user
 			if @user.update_attributes(user_params)
-				flash[:notice] = "Successfully edit profile."
+				flash[:notice] = "Successfully edited profile."
 				redirect_to user_path(@user)
 			else
 				redirect_to edit_user_path(@user)
