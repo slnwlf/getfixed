@@ -3,9 +3,11 @@ class User < ActiveRecord::Base
 	has_many :bikes, dependent: :destroy
 	has_many :comments, dependent: :destroy
 	
-	validates :name, presence: true
+	validates :name, 
+			presence: true,
+			uniqueness: true
 	validates :email,
-			presence: true
-			# uniqueness: true
+			presence: true,
+			uniqueness: true
 	validates :password, length: {minimum: 6}, on: :create 
 end
