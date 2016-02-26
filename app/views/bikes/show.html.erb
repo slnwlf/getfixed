@@ -29,9 +29,11 @@
 				<div class="comment-wrapper">
 					<p class="comment"><strong><%= link_to comment.user.name, user_path(comment.user) %></strong></p>
 					<p class="comment">&emsp;<%= comment.content %> (<%= time_ago_in_words(comment.created_at) %> ago)</p>
-					<% if current_user == @bike.user or current_user == comment.user %>
-						&emsp;<%= link_to "Edit", edit_bike_comment_path(@bike, comment) %>
-						&emsp;<%= link_to 'Delete', [@bike, comment], method: :delete, data: {confirm: "Are you sure?"} %>
+					<% if current_user == @bike.user and current_user == comment.user %>
+					    &emsp;<%= link_to "Edit", edit_bike_comment_path(@bike, comment) %>
+					    &emsp;<%= link_to 'Delete', [@bike, comment], method: :delete, data: {confirm: "Are you sure?"} %>
+					<% elsif current_user == @bike.user %>
+					    &emsp;<%= link_to 'Delete', [@bike, comment], method: :delete, data: {confirm: "Are you sure?"} %>
 					<% end %>
 				</div>
 				<hr>
