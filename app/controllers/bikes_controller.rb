@@ -13,6 +13,7 @@ class BikesController < ApplicationController
 	def create
 		@bike = current_user.bikes.new(bike_params)
 		if @bike.save
+			flash[:notice] = "Successfully added a bike."
 			redirect_to bike_path(@bike)
 		else
 			flash[:error] = @bike.errors.full_messages.join(", ")
