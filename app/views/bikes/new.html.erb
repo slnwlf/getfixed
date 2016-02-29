@@ -1,22 +1,24 @@
-<div class="row">
-	<div class="col-md-6 col-md-offset-3 well">
-		<%= form_for @bike, html: { multipart: true } do |f| %>
-		<div class="form-group">
-			Bike name: <%= f.text_field :name, :class => "form-control" %>
-			Description / build details: <%= f.text_area :description, :class =>"form-control" %>
-			Location: <%= f.text_field :location, :class =>"form-control bike_location" %>
-			<% f.hidden_field :user_id, :value => current_user.id %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 well">
+			<%= form_for @bike, html: { multipart: true } do |f| %>
+			<div class="form-group">
+				Bike name: <%= f.text_field :name, :class => "form-control" %>
+				Description / build details: <%= f.text_area :description, :class =>"form-control" %>
+				Location: <%= f.text_field :location, :class =>"form-control bike_location" %>
+				<% f.hidden_field :user_id, :value => current_user.id %>
+			</div>
+			<div class="form-group">
+				<%= f.file_field :image %>
+			</div>
+			<div class="form-group text-center">
+				<%= f.submit "Save Bike", :class => "btn btn-primary" %>
+			</div>
+			<div>
+				<p><strong class="accent">Describe your bike in detail.</strong>  What gear are you running?  What is the frame material?  List the specs:  tire make / model, size, wheels, hubs, crankset, brakes, etc.  Channel your inner bike nerd. </p>
+				<p><strong class="accent">Images:</strong> Square images are best.  Maximum file size is 1 MB. 800x800 pixels is best.  Make sure there is plenty of light and a blank background that highlights the beauty of your beautiful machine. </p>
+			</div>
+			<% end %>
 		</div>
-		<div class="form-group">
-			<%= f.file_field :image %>
-		</div>
-		<div class="form-group text-center">
-			<%= f.submit "Save Bike", :class => "btn btn-primary" %>
-		</div>
-		<div>
-			<p><strong class="accent">Describe your bike in detail.</strong>  What gear are you running?  What is the frame material?  List the specs:  tire make / model, size, wheels, hubs, crankset, brakes, etc.  Channel your inner bike nerd. </p>
-			<p><strong class="accent">Images:</strong> Square images are best.  Maximum file size is 1 MB. 800x800 pixels is best.  Make sure there is plenty of light and a blank background that highlights the beauty of your beautiful machine. </p>
-		</div>
-		<% end %>
 	</div>
 </div>
