@@ -6,8 +6,9 @@
 		<%= favicon_link_tag asset_path('favicon.ico'), type:'image/png' %>
 		<title>Fixed Gear Nation</title>
 		<%= stylesheet_link_tag    'application', media: 'all' %>
-		<%= javascript_include_tag 'application' %>
 		<%= csrf_meta_tags %>
+		<!-- Adding javascript links to get hamburger menu in nav to work -->
+		<%= javascript_include_tag 'application' %>
 	</head>
 	<body>
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
@@ -45,11 +46,6 @@
 		</div>
 
 		<%= yield %>
-
-		<!-- Adding javascript links to get hamburger menu in nav to work -->
-		<%= javascript_include_tag 'application' %>
-
-		<!-- google maps -->
 
 		<!-- geocomplete -->
 		<script src="https://cdn.jsdelivr.net/jquery.geocomplete/1.6.4/jquery.geocomplete.min.js"></script>
