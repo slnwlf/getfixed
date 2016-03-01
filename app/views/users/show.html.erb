@@ -2,19 +2,16 @@
 	<div class="col-md-6 col-md-offset-3 well">
 		<div class="caption">
 			<h3><strong class="accent">Fixed gear owner: </strong><%= @user.name %> </h3>
-
 			<% if current_user == @user %>
 			<%= link_to " Edit", edit_user_path(current_user), class: "glyphicon glyphicon-cog btn btn-primary"%>
 			<% end %>
-
 		</div>
 		<div>
-
 			<% @bikes.each do |bike| %>
 			<div>
 				<h4><%= link_to bike.name, bike_path(bike) %></h4>
 				<p><strong>Originally posted on <%= bike.created_at.localtime.strftime("%b. %d %Y") %></strong></p>
-				<p><%= image_tag bike.image.url(:large) %></p>
+				<p class="show-photo"><%= image_tag bike.image.url(:large), class: "img-responsive" %></p>
 			</div>
 			<% end %>
 		</div>
