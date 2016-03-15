@@ -9,7 +9,7 @@ A fixed gear bicycle is a simple, single-speed bicycle with a 'fixed' cog instea
 * Users can browse a newsfeed of posted bikes.  Each bike includes a bike name, description, and thumbnail image. (Read from database)
 * Users can post bikes including location - with geolocation autofill. (Create in database)
 * Users can upvote bikes.  One vote per user per bike.
-* Each bike has a readable URL.
+* Each user and bike has a friendly, readable URL.
 * Users can see the details of a bike, including a larger photo and a zoom photo. 
 * Users can comment on a bike
 * Users can see their own bike (or quiver of bikes) on their profile page.
@@ -47,7 +47,6 @@ A fixed gear bicycle is a simple, single-speed bicycle with a 'fixed' cog instea
 * Users can message each other
 * Users can add multiple photos of their bike
 * Users can easily share bikes via a share button
-* Friendly URLs for user show pages
 
 # Live app
 
@@ -57,4 +56,5 @@ Join the Fixed Gear Nation at  <http://www.fixedgearnation.com>
 
 * Dave Sloan - <https://github.com/slnwlf>
 * Trung Huynh - <https://github.com/tkhuynh>
+* John Dwyer - <https://github.com/Jsdwyer26>
  
