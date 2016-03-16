@@ -8,18 +8,18 @@
 			<% @bikes.reverse_each do |bike| %>
 				<div class="bike_area active">
 					<div class="row">
-						<div class="text-center voting-section col-sm-2">
+						<div class="text-center voting-section col-lg-2 col-md-4 col-sm-4 col-xs-3">
 							<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default vote_button" do %>
 							<span class="glyphicon glyphicon-triangle-top"></span>
 							<%= bike.get_upvotes.size %>
 							<% end %>
 						</div>
-						<div class="bike_photo col-sm-5">
+						<div class="bike_photo col-lg-4 col-md-8 col-sm-8 col-xs-9 text-center">
 							<%= link_to bike_path(bike) do %>
 								<%= image_tag bike.image.url(:medium), class: "img-responsive bike-pic-index" %>
 							<% end %>	
 						</div>
-						<div class="text-section col-sm-6">
+						<div class="text-section col-lg-6 col-md-12 col-sm-12 col-xs-12">
 							<strong class="accent">Bike name: </strong> <%= bike.name %><br>
 							<strong class="accent">Location: </strong> <%= bike.location %><br>
 							<strong class="accent">Posted by: </strong><%= link_to bike.user.name.titleize, user_path(bike.user) %></br>
