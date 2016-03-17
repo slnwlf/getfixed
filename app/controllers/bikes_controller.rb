@@ -8,10 +8,12 @@ class BikesController < ApplicationController
 
 	def new
 		@bike = Bike.new
+		3.times { @bike.bike_photos.build }
 	end
 
 	def create
 		@bike = current_user.bikes.new(bike_params)
+		byebug
 		if @bike.save
 			flash[:notice] = "Successfully added a bike."
 			redirect_to bike_path(@bike)
@@ -22,6 +24,7 @@ class BikesController < ApplicationController
 	end
 
 	def show
+		@additional_photos = @bike.bike_photos
 		@comment = Comment.new # <<<< this is for comment form on bike
 	end
 
@@ -72,7 +75,7 @@ class BikesController < ApplicationController
 private
 
   def bike_params
-    params.require(:bike).permit(:name, :description, :location, :image, :slug)
+    params.require(:bike).permit(:name, :description, :location, :image, :slug, bike_photos_attributes: [:user_id, :image])
   end
 
   def find_bike
