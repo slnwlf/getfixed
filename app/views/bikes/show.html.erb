@@ -1,12 +1,18 @@
 <div class="container bike-show">
 	<div class="row">
 		<div class="col-md-5 text-center">
-			<%= image_tag @bike.image.url(:large), data: {zoom_image: @bike.image.url(:xl)}, class: "img-responsive bike-pic-show" %>
-			<div class="additional-photos">
-				<% @additional_photos.each do |photo| %>
-					<%= image_tag photo.image.url(:thumb), class: "img-reponsive" %>
-				<% end %>
+			<div class="main-photo-holder">
+				<%= image_tag @bike.image.url(:large), data: {zoom_image: @bike.image.url(:xl)}, class: "img-responsive bike-pic-show" %>
 			</div>
+			<% if @additional_photos.any? %>
+				<div class="additional-photos">
+					<% @additional_photos.each do |photo| %>
+						<div class="additional-photo-holder">
+							<%= image_tag photo.image.url(:thumb), class: "img-responsive individual-additional-photo" %>
+						</div>
+					<% end %>
+				</div>
+			<% end %>
 			<div class="bike_show_buttons text-center">
 				<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
 					<span class="glyphicon glyphicon-triangle-top"></span>

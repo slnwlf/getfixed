@@ -76,19 +76,26 @@ div.text-section {
   margin: 10px 0px 0px 20px;
 }
 .bike-pic-show {
-	max-height: 600px;
+	max-height: 335px;
 	margin: 0 auto; 
 }
 .comment {
 	margin-bottom: 0;
 }
 .bike_show_buttons {
+	display: block;
 	margin: .5em; 
 }
 .bike-show {
 	padding: 20px 0px 50px 0px;
 }
-
+.individual-additional-photo {
+	height: 75px;
+	display: inline;
+}
+.additional-photo-holder {
+	display: inline;
+}
 @media (max-width: 768px) {
 	.logo {
 		width: 300px; 
