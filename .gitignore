@@ -17,4 +17,7 @@
 /tmp
 
 .env
-/public/assets
+/public/system/*
+/public/assets/*
+
+.byebug_history

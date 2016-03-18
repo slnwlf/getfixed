@@ -13,6 +13,15 @@ class Bike < ActiveRecord::Base
 	acts_as_votable
 	belongs_to :user
 	has_many :comments, dependent: :destroy
+	has_many :bike_photos, dependent: :destroy
+
+	accepts_nested_attributes_for :bike_photos, reject_if: :reject_bike_photos
+
+  def reject_bike_photos(attributed)
+    attributed['image'].blank?
+  end
+
+	# accepts_nested_attributes_for :bike_photos, reject_if: lambda { |a| a[:image].blank? }, allow_destroy: true
 
 	validates :name, presence: true
 	validates :description, length: {minimum: 6}, on: :create
