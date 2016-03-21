@@ -27,7 +27,7 @@
 			
 		<div class="col-md-7">
 			<h3><strong class="accent">Bike name: </strong><%= @bike.name %></h3>
-			<!-- remove the contry in location -->
+			<!-- remove the country in location -->
 			<p><strong class="accent">Location: </strong><%= @bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %></p>
 			<p><strong class="accent">Build details / Description: </strong><%= @bike.description %></p>
 			<p><strong class="accent">Posted by: </strong><%= link_to @bike.user.name, user_path(@bike.user) %></p>

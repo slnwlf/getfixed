@@ -89,12 +89,19 @@ div.text-section {
 .bike-show {
 	padding: 20px 0px 50px 0px;
 }
+.additional-photos {
+	margin-top: 5px;
+}
 .individual-additional-photo {
 	height: 75px;
 	display: inline;
+	border: 1px solid #333;
 }
 .additional-photo-holder {
 	display: inline;
+}
+.edit-additional-photo_thumb {
+	height: 71px;
 }
 @media (max-width: 768px) {
 	.logo {
