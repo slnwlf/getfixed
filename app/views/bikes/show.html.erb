@@ -1,7 +1,7 @@
 <div class="container bike-show">
 	<div class="row">
   <div class="col-md-12">
-    <div class="thumbnail">
+    <div class="thumbnail show-page">
       <%= image_tag @bike.image.url(:large), data: {zoom_image: @bike.image.url(:xl)}, class: "img-responsive bike-pic-show" %>
 			<% if @additional_photos.any? %>
 				<div class="additional-photos">
@@ -12,18 +12,26 @@
 					<% end %>
 				</div>
 			<% end %>
-        <h3 class="bike_name"><strong><%= @bike.name %></strong></h3>
-        <p><%= @bike.description %></p>
+			<div class="row">
+				<h3 class="bike_name"><strong><%= @bike.name %><%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
+					<span class="glyphicon glyphicon-heart"></span>
+					<%= @bike.get_upvotes.size %>
+					<% end %></strong></h3>
+
+			  <div class="col-md-5">
+			  	<p><%= @bike.description %></p>
+			  </div>
+			  <div class="col-md-5">
+			  	<p><strong>Posted by: <%= link_to @bike.user.name, user_path(@bike.user) %> on <%= @bike.created_at.localtime.strftime("%b %d, %Y") %></strong></p>
+					<p><strong></strong><%= @bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %></strong></p>	
+				</div>	
+			</div>				
         <div class="bike_show_buttons">
-			<%= link_to like_bike_path(@bike), method: :put, class: "btn btn-default" do %>
-			<span class="glyphicon glyphicon-triangle-top"></span>
-			<%= @bike.get_upvotes.size %>
-			<% end %>
-			<% if (current_user && (current_user.id == @bike.user_id)) %>
-			<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
-			<%= link_to "Delete", @bike, method: :delete, data: {confirm: "Are you sure you want to delete this bike?"}, class: "btn btn-primary" %>
-			<% end %>
-		</div>	
+					<% if (current_user && (current_user.id == @bike.user_id)) %>
+					<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
+					<%= link_to "Delete", @bike, method: :delete, data: {confirm: "Are you sure you want to delete this bike?"}, class: "btn btn-primary" %>
+					<% end %>
+			</div>
 		<hr>
 		<div class="row comment_area">
 		<div class="col-md-12">

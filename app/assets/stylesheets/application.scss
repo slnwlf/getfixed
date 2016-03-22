@@ -43,6 +43,11 @@ body {
 	margin-right: 30px;
 }
 
+.show-page {
+	margin-top: -30px;
+	padding: 40px;
+}
+
 .bike_name {
 	color: #5F919B;
 }
@@ -52,6 +57,16 @@ body {
 	width: 280px;
 	height: 200px;
 	margin: 0 auto; 
+}
+
+.glyphicon-heart {
+	margin-left: 650px;
+}
+
+.btn-default {
+    color: #222222;
+    background-color: #fff;
+    border-color: #fff;
 }
 
 .bike_area {
@@ -105,6 +120,7 @@ div.text-section {
 }
 .bike-show {
 	padding: 20px 0px 50px 0px;
+	max-width: 75%;
 }
 .individual-additional-photo {
 	height: 75px;
