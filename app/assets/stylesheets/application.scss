@@ -31,8 +31,20 @@ body {
  	background-color: #6E757D;
  }
 
+.logo {
+	width: 60%;
+	height: 60%;
+	padding-top: 10px;
+	margin-left: 30px;
+}
+
 .navbar-right {
 	text-transform: uppercase;
+	margin-right: 30px;
+}
+
+.bike_name {
+	color: #5F919B;
 }
 
 .bike_photo {
@@ -81,7 +93,7 @@ div.text-section {
   margin: 10px 0px 0px 20px;
 }
 .bike-pic-show {
-	max-height: 335px;
+	max-height: 100%;
 	margin: 0 auto; 
 }
 .comment {
