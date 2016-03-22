@@ -25,23 +25,23 @@
 			</div>
 		</div>
 	</div>		
-			<div class="row">
-			  <div class="col-md-5">
-			  	<p><%= @bike.description %></p>
-			  </div>
-			  <div class="col-md-5">
-			  	<p><strong>Posted by: <%= link_to @bike.user.name, user_path(@bike.user) %> on <%= @bike.created_at.localtime.strftime("%b %d, %Y") %></strong></p>
-					<p><strong></strong><%= @bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %></strong></p>	
-				</div>	
-			</div>				
-        <div class="bike_show_buttons">
-					<% if (current_user && (current_user.id == @bike.user_id)) %>
-					<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
-					<%= link_to "Delete", @bike, method: :delete, data: {confirm: "Are you sure you want to delete this bike?"}, class: "btn btn-primary" %>
-					<% end %>
-			</div>
+	<div class="row">
+		<div class="col-md-5">
+			<p><%= @bike.description %></p>
+		</div>
+		<div class="col-md-5">
+			<p><strong>Posted by: <%= link_to @bike.user.name, user_path(@bike.user) %> on <%= @bike.created_at.localtime.strftime("%b %d, %Y") %></strong></p>
+			<p><strong></strong><%= @bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %></strong></p>	
+		</div>	
+	</div>				
+  <div class="bike_show_buttons">
+		<% if (current_user && (current_user.id == @bike.user_id)) %>
+		<%= link_to "Edit", edit_bike_path(@bike), class: "btn btn-primary" %>
+		<%= link_to "Delete", @bike, method: :delete, data: {confirm: "Are you sure you want to delete this bike?"}, class: "btn btn-primary" %>
+		<% end %>
+	</div>
 		<hr>
-		<div class="row comment_area">
+	<div class="row comment_area">
 		<div class="col-md-12">
 			<% @bike.comments.each do |comment| %>
 				<div class="comment-wrapper">
