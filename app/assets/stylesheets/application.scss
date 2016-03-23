@@ -151,3 +151,11 @@ div.text-section {
 		width: 300px; 
 	}
 }
+@media (max-width: 500px) {
+	body {
+		background-color: red;
+	}
+	.bike-homepage {
+		width: 100% !important;
+	}
+}
