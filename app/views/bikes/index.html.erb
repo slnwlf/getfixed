@@ -1,37 +1,23 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="header_title text-center">
-				<h2>Sign up to post your fixie on the <span class="accent_text">Fixed Gear Nation.</span></h2>
-			</div>
+		<div class="col-md-12">
 			<br>
 			<% @bikes.reverse_each do |bike| %>
-				<div class="bike_area active">
-					<div class="row">
-						<div class="text-center voting-section col-lg-2 col-md-4 col-sm-4 col-xs-3">
-							<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default vote_button" do %>
-							<span class="glyphicon glyphicon-triangle-top"></span>
-							<%= bike.get_upvotes.size %>
-							<% end %>
-						</div>
-						<div class="bike_photo col-lg-4 col-md-8 col-sm-8 col-xs-9 text-center">
-							<%= link_to bike_path(bike) do %>
-								<%= image_tag bike.image.url(:medium), class: "img-responsive bike-pic-index" %>
-							<% end %>	
-						</div>
-						<div class="text-section col-lg-6 col-md-12 col-sm-12 col-xs-12">
-							<strong class="accent">Bike name: </strong> <%= bike.name %><br>
-							<strong class="accent">Location: </strong> <%= bike.location %><br>
-							<strong class="accent">Posted by: </strong><%= link_to bike.user.name.titleize, user_path(bike.user) %></br>
-							<strong class="accent">Post date: </strong><%= bike.created_at.localtime.strftime("%b. %d, %Y") %>
-							<br>
-							<br>
-							<div class="text-center">
-								<p><%= link_to "bike details", bike_path(bike), class: "btn btn-primary see_bike" %></p>
-							</div>
-						</div>
+				<div class="col-sm-4 col-xs-12 thumbnail bike-homepage">
+					<div class="row bike-home">						
+						<%= link_to bike_path(bike) do %>
+						<%= image_tag bike.image.url(:medium), class: "img-responsive" %>
+						<% end %>	
+						<h4 class="bike_name"><strong><%= bike.name %></strong></h4><br>
+							<p><div>
+              <%= link_to like_bike_path(bike), method: :put, class: "btn btn-default vote_button_home" do %>
+              <span class="glyphicon glyphicon-heart"></span>
+              <%= bike.get_upvotes.size %>
+              <% end %>
+            </div></p>
+							<p>Posted by <%= link_to bike.user.name.titleize, user_path(bike.user) %> on <%= bike.created_at.localtime.strftime("%b. %d, %Y") %></p>
+							<p><%= bike.location %></p>
 					</div>
-					<br>
 				</div>
 			<% end %>
 		</div>

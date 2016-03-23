@@ -28,13 +28,62 @@ body {
  	padding-top: 60px;
  	font-family: 'Source Sans Pro', sans-serif;
  	font-size: 16px; 
+ 	background-color: #6E757D;
  }
+
+.logo {
+	width: 60%;
+	height: 60%;
+	padding-top: 10px;
+	margin-left: 30px;
+}
+
+.navbar-right {
+	text-transform: uppercase;
+	margin-right: 30px;
+}
+
+.bike-home {
+	margin: 10px;
+}
+
+.bike-homepage {
+    padding: 10px;
+    width: 30%;
+    margin-bottom: 30px;
+    margin-right: 30px;
+}
+
+.vote_button_home {
+	float: right;
+	margin-top: -72px;
+}
+
+.show-page {
+	margin-top: -30px;
+	padding: 40px;
+}
+
+.bike_name {
+	color: #5F919B;
+}
 
 .bike_photo {
 	background-color: white; 
 	width: 280px;
 	height: 200px;
 	margin: 0 auto; 
+}
+
+.bike_show_buttons_heart {
+	padding-top: 10px;
+	float: right;
+}
+
+.btn-default {
+    color: #222222;
+    background-color: #fff;
+    border-color: #fff;
 }
 
 .bike_area {
@@ -76,7 +125,7 @@ div.text-section {
   margin: 10px 0px 0px 20px;
 }
 .bike-pic-show {
-	max-height: 335px;
+	max-height: 100%;
 	margin: 0 auto; 
 }
 .comment {
@@ -88,6 +137,7 @@ div.text-section {
 }
 .bike-show {
 	padding: 20px 0px 50px 0px;
+	max-width: 75%;
 }
 .individual-additional-photo {
 	height: 75px;
@@ -99,5 +149,13 @@ div.text-section {
 @media (max-width: 768px) {
 	.logo {
 		width: 300px; 
+	}
+	.bike-homepage {
+		width: 100% !important;
+	}	
+}
+@media (max-width: 500px) {
+	.bike-homepage {
+		width: 100% !important;
 	}
 }
