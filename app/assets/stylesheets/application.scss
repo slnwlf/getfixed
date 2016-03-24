@@ -22,6 +22,9 @@
 
 @import "bootstrap";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 body {
@@ -43,6 +46,11 @@ body {
 	margin-right: 30px;
 }
 
+.thumbnail a > img.index-bikes {
+	height: 195px;
+	margin-bottom:  10px;
+}
+
 .bike-home {
 	margin: 10px;
 }
@@ -54,17 +62,28 @@ body {
     margin-right: 30px;
 }
 
-.vote_button_home {
-	float: right;
-	margin-top: -72px;
+.home-voted {
+	cursor: pointer;
 }
-
+.vote_button_home, .vote_button_home:hover {
+	color: #B20000;
+	text-decoration: none;
+	font-size: 22px;
+}
+.comment_button_home {
+	font-size: 22px;
+	margin-left: 10px;
+}
+.home-hr {
+	margin: 10px 0px 10px 0px;
+}
 .show-page {
 	margin-top: -30px;
 	padding: 40px;
 }
 
-.bike_name {
+.bike_name a, a.user_name {
+	text-decoration: none;
 	color: #5F919B;
 }
 

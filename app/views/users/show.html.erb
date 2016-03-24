@@ -8,7 +8,7 @@
 				<% end %>
 			</div>
 			<div>
-				<% @bikes.each do |bike| %>
+				<% @user.bikes.each do |bike| %>
 				<div>
 					<h4><%= link_to bike.name, bike_path(bike) %></h4>
 					<p><strong>Originally posted on <%= bike.created_at.localtime.strftime("%b. %d %Y") %></strong></p>
