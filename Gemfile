@@ -47,6 +47,9 @@ gem 'aws-sdk-v1'
 # friendly url
 gem 'friendly_id', '~> 5.1.0'
 
+# instagram gem
+gem 'instagram'
+
 # another gem for heroku
 group :production do
   gem 'rails_12factor'

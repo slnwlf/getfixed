@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'secret/index'
+
   root to: "bikes#index"
   # use resources to set all CRUD routes for bikes
   resources :bikes do
