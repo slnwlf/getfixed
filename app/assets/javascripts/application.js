@@ -56,42 +56,28 @@ $(function() {
             $('#zoomed img').removeData('elevateZoom');
             $('.zoomWrapper img.zoomed').unwrap();
             $('.zoomContainer').remove();
-            if ($(window).width() < 600) {
-                $(".bike-pic-show").elevateZoom({
-                    constrainType: "height",
-                    constrainSize: 274,
-                    zoomType: "lens",
-                    containLensZoom: true,
-                    gallery: 'gallery_01',
-                    cursor: 'pointer',
-                    galleryActiveClass: "active"
-                });
-            } else {
-                $(".bike-pic-show").elevateZoom({
-                    zoomWindowPosition: 1,
-                    zoomWindowOffetx: 10
-                });
-            }
+            $(".bike-pic-show").elevateZoom({
+                constrainType:"height",
+                constrainSize:274,
+                zoomType: "lens",
+                containLensZoom: true,
+                gallery:'gallery_01',
+                cursor: 'pointer',
+                galleryActiveClass: "active"
+            });
         });
     }
 
     // set zoom for main photo
-    if ($(window).width() < 770) {
-        $(".bike-pic-show").elevateZoom({
-            constrainType: "height",
-            constrainSize: 274,
-            zoomType: "lens",
-            containLensZoom: true,
-            gallery: 'gallery_01',
-            cursor: 'pointer',
-            galleryActiveClass: "active"
-        });
-    } else {
-        $(".bike-pic-show").elevateZoom({
-            zoomWindowPosition: 1,
-            zoomWindowOffetx: 10
-        });
-    }
+    $(".bike-pic-show").elevateZoom({
+        constrainType:"height",
+        constrainSize:274,
+        zoomType: "lens",
+        containLensZoom: true,
+        gallery:'gallery_01',
+        cursor: 'pointer',
+        galleryActiveClass: "active"
+    });
     // set zoom for additional photo when user click on it
     additional_photo_zoom();
 
@@ -106,4 +92,9 @@ $(function() {
     }
 
     onGeocomplete();
+
+    // comment box toggle
+    $(".user_comment_button").on("click", function(e) {
+        $(".comment-form").slideToggle();
+    });
 });

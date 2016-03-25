@@ -1,39 +1,48 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<div class="header_title text-center">
-				<h2>Sign up to post your fixie on the <span class="accent_text">Fixed Gear Nation.</span></h2>
-			</div>
+		<div class="col-md-12">
 			<br>
-			<% @bikes.reverse_each do |bike| %>
-				<div class="bike_area active">
-					<div class="row">
-						<div class="text-center voting-section col-lg-2 col-md-4 col-sm-4 col-xs-3">
-							<%= link_to like_bike_path(bike), method: :put, class: "btn btn-default vote_button" do %>
-							<span class="glyphicon glyphicon-triangle-top"></span>
-							<%= bike.get_upvotes.size %>
-							<% end %>
-						</div>
-						<div class="bike_photo col-lg-4 col-md-8 col-sm-8 col-xs-9 text-center">
-							<%= link_to bike_path(bike) do %>
-								<%= image_tag bike.image.url(:medium), class: "img-responsive bike-pic-index" %>
-							<% end %>	
-						</div>
-						<div class="text-section col-lg-6 col-md-12 col-sm-12 col-xs-12">
-							<strong class="accent">Bike name: </strong> <%= bike.name %><br>
-							<strong class="accent">Location: </strong> <%= bike.location %><br>
-							<strong class="accent">Posted by: </strong><%= link_to bike.user.name.titleize, user_path(bike.user) %></br>
-							<strong class="accent">Post date: </strong><%= bike.created_at.localtime.strftime("%b. %d, %Y") %>
-							<br>
-							<br>
-							<div class="text-center">
-								<p><%= link_to "bike details", bike_path(bike), class: "btn btn-primary see_bike" %></p>
+			<div class="row">
+				<% @bikes.reverse_each do |bike| %>
+					<div class="col-md-4 col-sm-6 col-xs-12">
+						<div class="thumbnail bikes-index-thumbnail">
+							<%= image_tag bike.image.url(:medium), class: "img-responsive index-bikes" %>
+							<div class="bikes-index-content">
+								<% if !current_user %>
+									<!-- if non logged in redirect to login without doing any query -->
+									<%= link_to login_path, class: "vote_button_home" do %>
+			            	<%= icon('heart-o') %>
+			            <% end %>
+			            <%= link_to login_path, class: "comment_button_home" do %>
+				            <%= icon('comment-o', class: "text-muted") %>
+			            <% end %>
+								<% else %>
+									<!-- if user already voted for the bike, this is a fake button -->
+									<% if bike.get_upvotes.exists?(voter_id: current_user.id) %>
+										<%= icon('heart', class: "vote_button_home home-voted") %>
+									<% else %>
+										<!-- if user haven't like the bike, this is the like button -->
+										<%= link_to like_bike_path(bike), method: :put, class: "vote_button_home" do %>
+											<%= icon('heart-o') %>
+										<% end %>
+									<% end %>
+									<%= link_to bike_path(bike), class: "comment_button_home" do %>
+				            <%= icon('comment-o', class: "text-muted") %>
+			            <% end %>
+								<% end %>
+								<hr class="home-hr">
+								<h4 class="bike_name"><strong><%= link_to bike.name, bike_path(bike) %></strong></h4>
+								<p>
+			            <%= icon('heart') %> <%= pluralize(bike.get_upvotes.size, 'like') %>
+									<br><%= icon('user') %> <%= link_to bike.user.name.titleize, user_path(bike.user), class: "user_name" %>
+									<br><%= icon('clock-o') %> <%= bike.created_at.localtime.strftime("%b. %d, %Y") %>
+									<br><%= icon('map-marker') %> <%= bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %>
+								</p>
 							</div>
 						</div>
 					</div>
-					<br>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>

@@ -22,19 +22,86 @@
 
 @import "bootstrap";
 
+@import "font-awesome-sprockets";
+@import "font-awesome";
+
 @import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro);
 
 body {
  	padding-top: 60px;
  	font-family: 'Source Sans Pro', sans-serif;
  	font-size: 16px; 
+ 	background-color: #6E757D;
  }
 
+.logo {
+	width: 60%;
+	height: 60%;
+	padding-top: 10px;
+	margin-left: 30px;
+}
+
+.navbar-right {
+	text-transform: uppercase;
+	margin-right: 30px;
+}
+
+div.thumbnail.bikes-index-thumbnail {
+	height: 410px;
+}
+img.index-bikes {
+	height: 195px;
+	margin-bottom:  10px;
+}
+.bikes-index-content {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.bike_name {
+	color: #5F919B;
+}
+
+.bike_name, .bike_name a, a.user_name {
+	text-decoration: none;
+	color: #5F919B;
+}
+.home-voted, span .show-voted {
+	cursor: pointer;
+}
+.vote_button_home, .vote_button_home:hover, span .vote_button_show, span .vote_button_show:hover {
+	color: #B20000;
+	text-decoration: none;
+	font-size: 22px;
+}
+.comment_button_home, .comment_button_show {
+	cursor: pointer;
+	font-size: 22px;
+	margin-left: 10px;
+}
+.home-hr {
+	margin: 10px 0px 10px 0px;
+}
+.show-page {
+	background-color: #ffffff;
+	margin-top: -10px;
+	margin-bottom: 50px;
+}
+#bike-edit-delete-menu {
+	font-size: 30px;
+}
 .bike_photo {
 	background-color: white; 
 	width: 280px;
 	height: 200px;
 	margin: 0 auto; 
+}
+.like-comment {
+	float: right;
+}
+.btn-default {
+    color: #222222;
+    background-color: #fff;
+    border-color: #fff;
 }
 
 .bike_area {
@@ -76,7 +143,7 @@ div.text-section {
   margin: 10px 0px 0px 20px;
 }
 .bike-pic-show {
-	max-height: 335px;
+	height: 425px;
 	margin: 0 auto; 
 }
 .comment {
@@ -88,6 +155,7 @@ div.text-section {
 }
 .bike-show {
 	padding: 20px 0px 50px 0px;
+	max-width: 75%;
 }
 .additional-photos {
 	margin-top: 5px;
@@ -95,7 +163,7 @@ div.text-section {
 .individual-additional-photo {
 	height: 75px;
 	display: inline;
-	border: 1px solid #333;
+	margin-top: 5px;	
 }
 .additional-photo-holder {
 	display: inline;
@@ -103,8 +171,33 @@ div.text-section {
 .edit-additional-photo_thumb {
 	height: 71px;
 }
+.comments-and-dropdown {
+	position: relative;
+}
+.edit-delete-dropdown {
+	position: absolute;
+	top: -5px;
+	right: 10px;
+}
+.comment-form {
+	margin-bottom: 25px;
+}
+.comment-wrapper {
+	margin-bottom: 25px;
+}
 @media (max-width: 768px) {
 	.logo {
 		width: 300px; 
+	}
+	.bike-homepage {
+		width: 100% !important;
+	}	
+	.bike-pic-show {
+		height: 180px;
+	}
+}
+@media (max-width: 500px) {
+	.bike-homepage {
+		width: 100% !important;
 	}
 }
