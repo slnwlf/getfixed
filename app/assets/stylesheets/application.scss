@@ -71,6 +71,7 @@ img.index-bikes {
 	font-size: 22px;
 }
 .comment_button_home, .comment_button_show {
+	cursor: pointer;
 	font-size: 22px;
 	margin-left: 10px;
 }
@@ -78,9 +79,13 @@ img.index-bikes {
 	margin: 10px 0px 10px 0px;
 }
 .show-page {
-	background-color: #ffffff
+	background-color: #ffffff;
+	margin-top: -10px;
+	margin-bottom: 50px;
 }
-
+#bike-edit-delete-menu {
+	font-size: 30px;
+}
 .bike_photo {
 	background-color: white; 
 	width: 280px;
@@ -156,6 +161,12 @@ div.text-section {
 }
 .additional-photo-holder {
 	display: inline;
+}
+.comment-form {
+	margin-bottom: 25px;
+}
+.comment-wrapper {
+	margin-bottom: 25px;
 }
 @media (max-width: 768px) {
 	.logo {

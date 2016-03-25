@@ -92,4 +92,9 @@ $(function() {
     }
 
     onGeocomplete();
+
+    // comment box toggle
+    $(".user_comment_button").on("click", function(e) {
+        $(".comment-form").slideToggle();
+    });
 });
