@@ -157,6 +157,9 @@ div.text-section {
 	padding: 20px 0px 50px 0px;
 	max-width: 75%;
 }
+.additional-photos {
+	margin-top: 5px;
+}
 .individual-additional-photo {
 	height: 75px;
 	display: inline;
@@ -164,6 +167,22 @@ div.text-section {
 }
 .additional-photo-holder {
 	display: inline;
+}
+.edit-additional-photo_thumb {
+	height: 71px;
+}
+.edit-additional-photos {
+	position: relative;
+}
+.remove-additional {
+	font-size: 22px;
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+.remove-additional:hover {
+	text-decoration: none;
+	color: #777777;
 }
 .comments-and-dropdown {
 	position: relative;

@@ -28,6 +28,12 @@ class BikesController < ApplicationController
 	end
 
 	def edit
+		if @bike.bike_photos.count == 0
+			3.times { @bike.bike_photos.build }
+		elsif @bike.bike_photos.count > 0 and @bike.bike_photos.count < 3
+			n = 3 - @bike.bike_photos.count
+			n.times { @bike.bike_photos.build }
+		end
 		unless current_user == @bike.user
 			flash[:error] = "You can only edit your own bike."
 			redirect_to bike_path(@bike)
@@ -36,32 +42,47 @@ class BikesController < ApplicationController
 
 	def update
 		# @bike.update_attributes(bike_params) won't work with nested attributes
-		# below is a hack way to update for a moment
-
+		# below is a hack way to update for a moment (this method will slow the performance)
 		# get bike param without nested attributes
 		bike_params_without_nested_attrinutes = params.require(:bike).permit(:name, :description, :location, :image, :slug)
 		if current_user == @bike.user
 			# set update bike_photo (additonal photos beside main photo) as false
 			update_additional_photo_successful = false
-			# loop through bike_photo_attribute
-			bike_params[:bike_photos_attributes].each do |key, value|
-				# if there is image key, meaning user just update new image
-				if value.has_key?("image")
-					# user updating image pass validation, set update_additional_photo_successful = true
-					if @bike.bike_photos[key.to_i].update_attributes(bike_params[:bike_photos_attributes][key])
-						update_additional_photo_successful = true
-					# when fail image validation, break loop update_additional_photo_successful = false
+			add_all_new_additional_photos = false
+			if @bike.bike_photos.count > 0 # when user has uploaded any additional photos before
+				# loop through bike_photo_attribute
+				bike_params[:bike_photos_attributes].each do |key, value|
+					# when you user want to update uploaded additonal photos
+					if value.has_key?("image") and key.to_i < @bike.bike_photos.count
+						# user updating image pass validation, set update_additional_photo_successful = true
+						if @bike.bike_photos[key.to_i].update_attributes(bike_params[:bike_photos_attributes][key])
+							update_additional_photo_successful = true
+						# when fail image validation, break loop update_additional_photo_successful = false
+						else
+							return update_additional_photo_successful = false
+						end
+					# if a key is equal or grater than the number of uploaded additional photos
+					# meaning, user want to add more additional since he haven't reach the total of 3 yet
+					# create new BikePhoto
+					elsif value.has_key?("image") and key.to_i >= @bike.bike_photos.count
+						new_addtional_photo = @bike.bike_photos.new(bike_params[:bike_photos_attributes][key])
+						if new_addtional_photo.save
+							update_additional_photo_successful = true
+						else
+							return update_additional_photo_successful = false
+						end
+					# if there isn't image key, meaning user just want keep old image
+					# so set update_additional_photo_successful = true for below logic
 					else
-						return update_additional_photo_successful = false
-					end
-				# if there isn't image key, meaning user just want keep old image
-				# so set update_additional_photo_successful = true for below logic
-				else
-					update_additional_photo_successful = true 
-				end 
+						update_additional_photo_successful = true 
+					end 
+				end
+			else
+				update_additional_photo_successful = false
+				add_all_new_additional_photos = true
 			end
 			# if pass all validations
-			if @bike.update_attributes(bike_params_without_nested_attrinutes) and update_additional_photo_successful
+			if (@bike.update_attributes(bike_params_without_nested_attrinutes) and update_additional_photo_successful) or (add_all_new_additional_photos and @bike.update_attributes(bike_params))
 				flash[:notice] = "Successfully edited a bike."
 				redirect_to bike_path(@bike)
 			# fail any of validation

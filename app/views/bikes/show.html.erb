@@ -67,7 +67,7 @@
 				<% if (current_user && (current_user.id == @bike.user_id)) %>
 					<div class="dropdown edit-delete-dropdown">
 						<%= icon('angle-down', class: 'dropdown-toggle text-muted', type: "button", id: "bike-edit-delete-menu", data: {toggle: "dropdown"}, aria: {haspopup: true, expanded: true}) %>
-					  <ul class="dropdown-menu dropdown-menu-left" aria-labelledby="bike-edit-delete-menu">
+					  <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="bike-edit-delete-menu">
 							<li><%= link_to edit_bike_path(@bike) do %>
 								<%= icon('pencil') %> Edit Bike
 							<% end %></li>
