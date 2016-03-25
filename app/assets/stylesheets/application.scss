@@ -46,31 +46,31 @@ body {
 	margin-right: 30px;
 }
 
-.thumbnail a > img.index-bikes {
+img.index-bikes {
 	height: 195px;
 	margin-bottom:  10px;
 }
-
-.bike-home {
-	margin: 10px;
+.bikes-index-content {
+	margin-left: 10px;
+	margin-right: 10px;
+}
+.bike_name {
+	color: #5F919B;
 }
 
-.bike-homepage {
-    padding: 10px;
-    width: 30%;
-    margin-bottom: 30px;
-    margin-right: 30px;
+.bike_name, .bike_name a, a.user_name {
+	text-decoration: none;
+	color: #5F919B;
 }
-
-.home-voted {
+.home-voted, span .show-voted {
 	cursor: pointer;
 }
-.vote_button_home, .vote_button_home:hover {
+.vote_button_home, .vote_button_home:hover, span .vote_button_show, span .vote_button_show:hover {
 	color: #B20000;
 	text-decoration: none;
 	font-size: 22px;
 }
-.comment_button_home {
+.comment_button_home, .comment_button_show {
 	font-size: 22px;
 	margin-left: 10px;
 }
@@ -78,13 +78,7 @@ body {
 	margin: 10px 0px 10px 0px;
 }
 .show-page {
-	margin-top: -30px;
-	padding: 40px;
-}
-
-.bike_name a, a.user_name {
-	text-decoration: none;
-	color: #5F919B;
+	background-color: #ffffff
 }
 
 .bike_photo {
@@ -93,12 +87,9 @@ body {
 	height: 200px;
 	margin: 0 auto; 
 }
-
-.bike_show_buttons_heart {
-	padding-top: 10px;
+.like-comment {
 	float: right;
 }
-
 .btn-default {
     color: #222222;
     background-color: #fff;
@@ -144,7 +135,7 @@ div.text-section {
   margin: 10px 0px 0px 20px;
 }
 .bike-pic-show {
-	max-height: 100%;
+	height: 425px;
 	margin: 0 auto; 
 }
 .comment {
@@ -161,6 +152,7 @@ div.text-section {
 .individual-additional-photo {
 	height: 75px;
 	display: inline;
+	margin-top: 5px;	
 }
 .additional-photo-holder {
 	display: inline;
@@ -172,6 +164,9 @@ div.text-section {
 	.bike-homepage {
 		width: 100% !important;
 	}	
+	.bike-pic-show {
+		height: 180px;
+	}
 }
 @media (max-width: 500px) {
 	.bike-homepage {

@@ -2,42 +2,47 @@
 	<div class="row">
 		<div class="col-md-12">
 			<br>
-			<% @bikes.reverse_each do |bike| %>
-				<div class="col-sm-4 col-xs-12 thumbnail bike-homepage">
-					<div class="row bike-home">						
-						<%= link_to bike_path(bike) do %>
-						<%= image_tag bike.image.url(:medium), class: "img-responsive index-bikes" %>
-						<% end %>
-						<% if !current_user %>
-							<!-- if non logged in redirect to login without doing any query -->
-							<%= link_to login_path, class: "vote_button_home" do %>
-	            	<%= icon('heart-o') %>
-	            <% end %>
-						<% else %>
-							<!-- if user already voted for the bike, this is a fake button -->
-							<% if bike.get_upvotes.exists?(voter_id: current_user.id) %>
-								<%= icon('heart', class: "vote_button_home home-voted") %>
-							<% else %>
-								<!-- if user haven't like the bike, this is the like button -->
-								<%= link_to like_bike_path(bike), method: :put, class: "vote_button_home" do %>
-									<%= icon('heart-o') %>
+			<div class="row">
+				<% @bikes.reverse_each do |bike| %>
+					<div class="col-sm-4 col-xs-12">
+						<div class="thumbnail bikes-index-thumbnail">
+							<%= image_tag bike.image.url(:medium), class: "img-responsive index-bikes" %>
+							<div class="bikes-index-content">
+								<% if !current_user %>
+									<!-- if non logged in redirect to login without doing any query -->
+									<%= link_to login_path, class: "vote_button_home" do %>
+			            	<%= icon('heart-o') %>
+			            <% end %>
+			            <%= link_to login_path, class: "comment_button_home" do %>
+				            <%= icon('comment-o', class: "text-muted") %>
+			            <% end %>
+								<% else %>
+									<!-- if user already voted for the bike, this is a fake button -->
+									<% if bike.get_upvotes.exists?(voter_id: current_user.id) %>
+										<%= icon('heart', class: "vote_button_home home-voted") %>
+									<% else %>
+										<!-- if user haven't like the bike, this is the like button -->
+										<%= link_to like_bike_path(bike), method: :put, class: "vote_button_home" do %>
+											<%= icon('heart-o') %>
+										<% end %>
+									<% end %>
+									<%= link_to bike_path(bike), class: "comment_button_home" do %>
+				            <%= icon('comment-o', class: "text-muted") %>
+			            <% end %>
 								<% end %>
-							<% end %>
-						<% end %>
-	          <%= link_to bike_path(bike), class: "comment_button_home" do %>
-		            <%= icon('comment-o', class: "text-muted") %>
-	            <% end %>
-						<hr class="home-hr">
-						<h4 class="bike_name"><strong><%= link_to bike.name, bike_path(bike) %></strong></h4>
-						<p>
-	            <%= icon('heart') %> <%= pluralize(bike.get_upvotes.size, 'like') %>
-							<br><%= icon('user') %> <%= link_to bike.user.name.titleize, user_path(bike.user), class: "user_name" %>
-							<br><%= icon('clock-o') %> <%= bike.created_at.localtime.strftime("%b. %d, %Y") %>
-							<br><%= icon('map-marker') %> <%= bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %>
-						</p>
+								<hr class="home-hr">
+								<h4 class="bike_name"><strong><%= link_to bike.name, bike_path(bike) %></strong></h4>
+								<p>
+			            <%= icon('heart') %> <%= pluralize(bike.get_upvotes.size, 'like') %>
+									<br><%= icon('user') %> <%= link_to bike.user.name.titleize, user_path(bike.user), class: "user_name" %>
+									<br><%= icon('clock-o') %> <%= bike.created_at.localtime.strftime("%b. %d, %Y") %>
+									<br><%= icon('map-marker') %> <%= bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %>
+								</p>
+							</div>
+						</div>
 					</div>
-				</div>
-			<% end %>
+				<% end %>
+			</div>
 		</div>
 	</div>
 </div>
