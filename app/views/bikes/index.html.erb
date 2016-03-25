@@ -4,7 +4,7 @@
 			<br>
 			<div class="row">
 				<% @bikes.reverse_each do |bike| %>
-					<div class="col-sm-4 col-xs-12">
+					<div class="col-md-4 col-sm-6 col-xs-12">
 						<div class="thumbnail bikes-index-thumbnail">
 							<%= image_tag bike.image.url(:medium), class: "img-responsive index-bikes" %>
 							<div class="bikes-index-content">

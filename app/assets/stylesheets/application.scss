@@ -46,6 +46,9 @@ body {
 	margin-right: 30px;
 }
 
+div.thumbnail.bikes-index-thumbnail {
+	height: 410px;
+}
 img.index-bikes {
 	height: 195px;
 	margin-bottom:  10px;
@@ -161,6 +164,14 @@ div.text-section {
 }
 .additional-photo-holder {
 	display: inline;
+}
+.comments-and-dropdown {
+	position: relative;
+}
+.edit-delete-dropdown {
+	position: absolute;
+	top: -5px;
+	right: 10px;
 }
 .comment-form {
 	margin-bottom: 25px;
