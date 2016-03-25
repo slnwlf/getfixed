@@ -64,4 +64,6 @@ Rails.application.routes.draw do
 
   resource :contact, only: [:new, :create]
 
+  resources :bike_photos, only: :destroy
+
 end

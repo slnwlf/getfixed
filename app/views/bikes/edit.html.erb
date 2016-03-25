@@ -1,35 +1,43 @@
-<div class="row">
-	<div class="col-md-6 col-md-offset-3 well">
-		<%= form_for @bike, html: { multipart: true } do |f| %>
-			<div class="form-group">
-				Bike name: <%= f.text_field :name, :class => "form-control" %>
-				Bike desription: <%= f.text_area :description, :class =>"form-control" %>
-				Location: <%= f.text_field :location, :class =>"form-control bike_location" %>
-			</div>
-			<%= f.label :image, "Main photo:" %>
-			<%= f.file_field :image %>
-			<%= image_tag(@bike.image.url(:thumb)) %>
-			<% if @bike.bike_photos.any? %>
-				<h4>Additional Photos:</h4>
-				<div class="row">
-					<%= f.fields_for :bike_photos, @bike.bike_photos do |builder| %>
-						<div class="col-xs-6">
-							<%= builder.hidden_field :user_id, value: current_user.id %>
-							<%= builder.file_field :image %>
-							<% unless builder.object.new_record? %>
-								<%= image_tag(builder.object.image.url(:thumb))  %>
-							<% end %>
-						</div>
-					<% end %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-6 col-md-offset-3 well">
+			<%= form_for @bike, html: { multipart: true } do |f| %>
+				<div class="form-group">
+					Bike name: <%= f.text_field :name, class: "form-control" %>
+					Bike desription: <%= f.text_area :description, class: "form-control" %>
+					Location: <%= f.text_field :location, class: "form-control bike_location" %>
+				</div>
+				<%= f.label :image, "Main photo:" %>
+				<%= f.file_field :image %>
+				<%= image_tag(@bike.image.url(:thumb)) %>
+				<% if @bike.bike_photos.any? %>
+					<h4>Additional Photos:</h4>
+					<div class="row">
+						<%= f.fields_for :bike_photos, @bike.bike_photos do |builder| %>
+							<div class="col-xs-6">
+								<%= builder.hidden_field :user_id, value: current_user.id %>
+								<%= builder.file_field :image %>
+								<% unless builder.object.new_record? %>
+									<div class="edit-additional-photos text-center">
+										<%= image_tag(builder.object.image.url(:thumb))  %>
+										<%= link_to bike_photo_path(builder.object), method: :delete, class: "remove-additional text-muted" do %>
+											<%= icon('times') %>
+										<% end %>
+									</div>
+								<% end %>
+							</div>
+						<% end %>
+					</div>
+				<% end %>
+				<div class="text-center">
+				<%= f.submit "Save Bike", class: "btn btn-primary" %>
+				<%= link_to "Cancel", bike_path(@bike), class: "btn btn-default" %>
+				</div>
+				<div>
+					<p><strong class="accent">Describe your bike in detail.</strong>  What gear are you running?  What is the frame material?  List the specs:  tire make / model, size, wheels, hubs, crankset, brakes, etc.  Channel your inner bike nerd. </p>
+					<p><strong class="accent">Images:</strong> Square images are best.  Maximum file size is 1 MB. 800x800 pixels is best.  Make sure there is plenty of light and a blank background that highlights the beauty of your beautiful machine. </p>
 				</div>
 			<% end %>
-			<div class="text-center">
-			<%= f.submit "Save Bike", :class => "btn btn-primary" %>
-			</div>
-			<div>
-				<p><strong class="accent">Describe your bike in detail.</strong>  What gear are you running?  What is the frame material?  List the specs:  tire make / model, size, wheels, hubs, crankset, brakes, etc.  Channel your inner bike nerd. </p>
-				<p><strong class="accent">Images:</strong> Square images are best.  Maximum file size is 1 MB. 800x800 pixels is best.  Make sure there is plenty of light and a blank background that highlights the beauty of your beautiful machine. </p>
-			</div>
-		<% end %>
+		</div>
 	</div>
-</div>
+</div>	

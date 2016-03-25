@@ -171,6 +171,19 @@ div.text-section {
 .edit-additional-photo_thumb {
 	height: 71px;
 }
+.edit-additional-photos {
+	position: relative;
+}
+.remove-additional {
+	font-size: 22px;
+	position: absolute;
+	top: 0;
+	right: 10px;
+}
+.remove-additional:hover {
+	text-decoration: none;
+	color: #777777;
+}
 .comments-and-dropdown {
 	position: relative;
 }
