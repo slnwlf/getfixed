@@ -61,12 +61,6 @@
 		<div class="col-md-12">
 			<div class="comments-and-dropdown">
 				<% if @bike.comments.count == 0 %>
-<<<<<<< HEAD
-					<p>Be the first to comment.</p>
-
-	        <%= icon('comment-o', class: "text-muted comment_button_show user_comment_button") %>
-					
-=======
 					<p>Be first to comment.
 						<% if @bike.comments.count == 0 and !current_user %>
 							<%= link_to login_path, class: "comment_button_show" do %>
@@ -76,7 +70,6 @@
 		        	<%= icon('comment-o', class: "text-muted comment_button_show user_comment_button") %>
 						<% end %>
 					</p>
->>>>>>> 9a7abb3eab65023f1831528a2343994255ddbd0d
 				<% else %>
 					<h4>COMMENTS (<%= @bike.comments.count %>)</h4>
 				<% end %>
