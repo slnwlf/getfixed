@@ -2,7 +2,7 @@
 	<div class="row">
 		<div class="col-xs-12 show-page-photo-wrapper">
 			<div class="main-photo-holder">
-				<%= image_tag @bike.image.url(:large), data: {zoom_image: @bike.image.url(:xl)}, class: "img-responsive bike-pic-show" %>
+				<%= image_tag @bike.image.url(:xl), class: "img-responsive bike-pic-show" %>
 			</div>
 			<% if @additional_photos.any? %>
 				<div class="additional-photos text-center">
@@ -60,7 +60,10 @@
 		<div class="col-md-12">
 			<div class="comments-and-dropdown">
 				<% if @bike.comments.count == 0 %>
-					<p>Be first to comment.</p>
+					<p>Be the first to comment.</p>
+
+	        <%= icon('comment-o', class: "text-muted comment_button_show user_comment_button") %>
+					
 				<% else %>
 					<h4>COMMENTS (<%= @bike.comments.count %>)</h4>
 				<% end %>
