@@ -6,7 +6,7 @@
 				<% @bikes.reverse_each do |bike| %>
 					<div class="col-md-4 col-sm-6 col-xs-12">
 						<div class="thumbnail bikes-index-thumbnail">
-							<%= link_to image_tag(bike.image.url(:medium)), bike_path(bike), class: "img-responsive index-bikes" %>
+							<%= link_to image_tag(bike.image.url(:medium)), bike_path(bike), class: "index-bikes" %>
 							<div class="bikes-index-content">
 								<% if !current_user %>
 									<!-- if non logged in redirect to login without doing any query -->

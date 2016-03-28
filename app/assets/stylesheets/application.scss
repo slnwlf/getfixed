@@ -49,9 +49,9 @@ body {
 div.thumbnail.bikes-index-thumbnail {
 	height: 410px;
 }
-img.index-bikes {
+.thumbnail a.index-bikes > img {
 	height: 195px;
-	margin-bottom:  10px;
+	margin-bottom: 10px;
 }
 .bikes-index-content {
 	margin-left: 10px;
