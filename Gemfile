@@ -49,6 +49,10 @@ gem 'aws-sdk-v1'
 # friendly url
 gem 'friendly_id', '~> 5.1.0'
 
+# pagination gem
+gem 'will_paginate', '~> 3.1'
+gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.1'
+
 # another gem for heroku
 group :production do
   gem 'rails_12factor'
