@@ -3,7 +3,7 @@ class BikesController < ApplicationController
   before_action :authorize, except: [:index, :show]
 
 	def index
-		@bikes = Bike.all
+		@bikes = Bike.order("created_at DESC").paginate(page: params[:page], per_page: 6)
 	end
 
 	def new
