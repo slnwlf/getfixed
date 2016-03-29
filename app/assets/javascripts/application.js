@@ -68,18 +68,18 @@ $(function() {
         });
     }
 
-    // set zoom for main photo
-    $(".bike-pic-show").elevateZoom({
-        constrainType:"height",
-        constrainSize:274,
-        zoomType: "lens",
-        containLensZoom: true,
-        gallery:'gallery_01',
-        cursor: 'pointer',
-        galleryActiveClass: "active"
-    });
-    // set zoom for additional photo when user click on it
-    additional_photo_zoom();
+    // // set zoom for main photo
+    // $(".bike-pic-show").elevateZoom({
+    //     constrainType:"height",
+    //     constrainSize:274,
+    //     zoomType: "lens",
+    //     containLensZoom: true,
+    //     gallery:'gallery_01',
+    //     cursor: 'pointer',
+    //     galleryActiveClass: "active"
+    // });
+    // // set zoom for additional photo when user click on it
+    // additional_photo_zoom();
 
     function onGeocomplete() {
         var options = {
