@@ -198,6 +198,17 @@ div.text-section {
 .comment-wrapper {
 	margin-bottom: 25px;
 }
+.pin-box-wrapper {
+	width: 100%; 
+	margin: auto; 
+}
+.pin-box {
+	margin: auto; 
+	text-align: center; 
+}
+.pin-box span {
+	max-width: 100%!important; 
+}
 @media (max-width: 768px) {
 	.logo {
 		width: 300px; 
