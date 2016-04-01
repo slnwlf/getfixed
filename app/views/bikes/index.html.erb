@@ -19,6 +19,7 @@
 								<% else %>
 									<!-- if user already voted for the bike, this is a fake button -->
 									<% if bike.get_upvotes.exists?(voter_id: current_user.id) %>
+										<%= bike.get_upvotes.size %>
 										<%= icon('heart', class: "vote_button_home home-voted") %>
 									<% else %>
 										<!-- if user haven't like the bike, this is the like button -->
@@ -28,15 +29,13 @@
 									<% end %>
 									<%= link_to bike_path(bike), class: "comment_button_home" do %>
 				            <%= icon('comment-o', class: "text-muted") %>
-			            <% end %>
+			            <% end %> &nbsp &nbsp
+			            <%= icon('map-marker') %> <%= bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %>
 								<% end %>
 								<hr class="home-hr">
 								<h4 class="bike_name"><strong><%= link_to bike.name, bike_path(bike) %></strong></h4>
 								<p>
-			            <%= icon('heart') %> <%= pluralize(bike.get_upvotes.size, 'like') %>
-									<br><%= icon('user') %> <%= link_to bike.user.name.titleize, user_path(bike.user), class: "user_name" %>
-									<br><%= icon('clock-o') %> <%= bike.created_at.localtime.strftime("%b. %d, %Y") %>
-									<br><%= icon('map-marker') %> <%= bike.location.sub!(/,\s\w+?\s?\w+?$/, '') %>
+									<%= icon('user') %> <%= link_to bike.user.name.titleize, user_path(bike.user), class: "user_name" %> posted  <%= bike.created_at.localtime.strftime("%b. %d, %Y") %>
 								</p>
 							</div>
 						</div>

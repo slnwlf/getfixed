@@ -47,10 +47,10 @@ body {
 }
 
 div.thumbnail.bikes-index-thumbnail {
-	height: 410px;
+	height: 375px;
 }
 .thumbnail a.index-bikes > img {
-	height: 195px;
+	height: 245px;
 	margin-bottom: 10px;
 }
 .bikes-index-content {
@@ -75,8 +75,11 @@ div.thumbnail.bikes-index-thumbnail {
 }
 .comment_button_home, .comment_button_show {
 	cursor: pointer;
-	font-size: 22px;
+	font-size: 18px;
 	margin-left: 10px;
+}
+.location {
+	text-align: right; 
 }
 .home-hr {
 	margin: 10px 0px 10px 0px;

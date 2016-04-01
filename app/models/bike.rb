@@ -25,6 +25,7 @@ class Bike < ActiveRecord::Base
 
 	validates :name, presence: true
 	validates :description, length: {minimum: 6}, on: :create
+	validates :name, length: {maximum: 30}
 	validates :image, presence: true
 
 	has_attached_file :image, styles: { xl: "800*800>",large: "600x600>", medium: "300x300>", thumb: "100x100>" }, default_url: "/images/:style/missing.png"
