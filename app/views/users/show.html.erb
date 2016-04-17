@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
-		<div class="col-md-6 col-md-offset-3 well">
-			<div class="caption">
+		<div class="col-md-8 col-md-offset-2 well">
+			<div class="caption text-center">
 				<h3><strong class="accent">Fixed gear owner: </strong><%= @user.name %> </h3>
 				<% if current_user == @user %>
 				<%= link_to "Edit", edit_user_path(current_user), class: "glyphicon glyphicon-cog btn btn-sm btn-primary"%>
@@ -12,7 +12,7 @@
 				<div>
 					<h4><%= link_to bike.name, bike_path(bike) %></h4>
 					<p><strong>Originally posted on <%= bike.created_at.localtime.strftime("%b. %d %Y") %></strong></p>
-					<p class="show-photo"><%= image_tag bike.image.url(:large), class: "img-responsive" %></p>
+					<p class="show-photo"><%= image_tag bike.image.url(:large), class: "img-responsive center-block" %></p>
 				</div>
 				<% end %>
 			</div>
