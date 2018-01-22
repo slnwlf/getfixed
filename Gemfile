@@ -35,7 +35,7 @@ gem 'font-awesome-sass', '~> 4.5.0'
 gem 'bcrypt', '~> 3.1.7'
 
 #paperclip for image upload
-gem "paperclip", "~> 4.3"
+gem "paperclip", "~> 5.0.0"
 
 # acts as votable for upvoting
 gem 'acts_as_votable', '~> 0.10.0'
