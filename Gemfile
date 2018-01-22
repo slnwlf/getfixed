@@ -44,7 +44,7 @@ gem 'acts_as_votable', '~> 0.10.0'
 gem 'pg'
 
 # AWS S3
-gem 'aws-sdk-s3', '~> 1'
+gem 'aws-sdk', '~> 3'
 
 # friendly url
 gem 'friendly_id', '~> 5.1.0'
